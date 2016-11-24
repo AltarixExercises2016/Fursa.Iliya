@@ -1,3 +1,58 @@
 <resources>
     <string name="app_name">UniversityApp</string>
+
+    <string name="tv_lesson_type">Тип занятия:</string>
+    <string name="tv_teacher">Преподаватель:</string>
+    <string name="tv_day_of_week">День недели: </string>
+    <string name="tv_time">Время:</string>
+    <string name="tv_add_title">Добавление нового занятия</string>
+    <string name="tv_lesson_name">Предмет:</string>
+    <string name="tv_warning">Добавьте занятия, чтобы начать пользоваться приложением</string>
+    <string name="tv_welcome">Добро пожаловать!!!</string>
+    <string name="tv_comment">Комментарий:</string>
+
+    <string-array name="lesson_type_array">
+        <item>Лекция</item>
+        <item>Практика</item>
+        <item>Зачет</item>
+        <item>Семинар</item>
+        <item>Олимпиада</item>
+        <item>Мероприятие</item>
+    </string-array>
+
+    <string-array name="teacher_array">
+        <item>Петров И.В</item>
+        <item>Иванов И.С</item>
+        <item>Кораблев С.В</item>
+        <item>Журова С.Н</item>
+        <item>Ковальчук. М.И</item>
+        <item>Пугин В.Л</item>
+    </string-array>
+
+    <string-array name="days_array">
+        <item>Понедельник</item>
+        <item>Вторник</item>
+        <item>Cреда</item>
+        <item>Четверг</item>
+        <item>Пятница</item>
+        <item>Суббота</item>
+        <item>Воскресение</item>
+    </string-array>
+
+    <string-array name="lessons_array">
+        <item>Физика</item>
+        <item>Дискретная математика</item>
+        <item>Теория информации</item>
+        <item>Теория вероятностей</item>
+        <item>Информационная безопасность</item>
+        <item>Теория алгоритмов</item>
+        <item>ОБЖ</item>
+        <item>Иностранный язык</item>
+        <item>Физическая культура</item>
+        <item>Компьютерные сети</item>
+        <item>Искусственный интеллект</item>
+        <item>Охрана труда</item>
+        <item>Веб-программирование</item>
+        <item>Базы данных</item>
+    </string-array>
 </resources>
