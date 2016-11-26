@@ -101,7 +101,7 @@
     <Spinner
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/spinnerDiscipline"
+        android:id="@+id/spinnerLesson"
         android:entries="@array/lessons_array"
         android:spinnerMode="dialog"
         android:layout_alignBottom="@+id/textView17"

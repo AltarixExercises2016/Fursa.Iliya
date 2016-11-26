@@ -45,7 +45,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         fragmentTransaction.addToBackStack(null);
         fragmentTransaction.commit();
 
-        Toast.makeText(getBaseContext(), "FAB1 pressed!", Toast.LENGTH_LONG).show();
+        Toast.makeText(getBaseContext(), "Main FAB pressed!", Toast.LENGTH_LONG).show();
 
 
     }

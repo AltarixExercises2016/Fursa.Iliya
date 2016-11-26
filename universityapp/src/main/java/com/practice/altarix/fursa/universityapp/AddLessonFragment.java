@@ -27,9 +27,9 @@ public class AddLessonFragment extends Fragment implements View.OnClickListener{
         typeSpinner = (Spinner)view.findViewById(R.id.spinnerType);
         teacherSpinner = (Spinner)view.findViewById(R.id.spinnerTeacher);
         daySpinner = (Spinner)view.findViewById(R.id.spinnerDay);
-        lessonSpinner = (Spinner)view.findViewById(R.id.spinner8);
+        lessonSpinner = (Spinner)view.findViewById(R.id.spinnerLesson);
         etTime = (EditText)view.findViewById(R.id.etTime);
-        etComment = (EditText)view.findViewById(R.id.editText);
+        etComment = (EditText)view.findViewById(R.id.etComment);
 
         floatingActionButton.setOnClickListener(this);
         setHasOptionsMenu(true);

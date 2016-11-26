@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">UniversityApp</string>
+    <string name="app_name">UniversityHelper</string>
 
     <string name="tv_lesson_type">Тип занятия:</string>
     <string name="tv_teacher">Преподаватель:</string>
