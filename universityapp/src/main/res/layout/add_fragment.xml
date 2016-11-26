@@ -12,7 +12,7 @@
         android:layout_toEndOf="@+id/textView10"
         android:layout_marginLeft="77dp"
         android:layout_marginStart="77dp"
-        android:id="@+id/spinner5"
+        android:id="@+id/spinnerType"
         android:spinnerMode="dialog"
         android:entries="@array/lesson_type_array" />
 
@@ -20,9 +20,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignTop="@+id/textView11"
-        android:layout_alignLeft="@+id/spinner5"
-        android:layout_alignStart="@+id/spinner5"
-        android:id="@+id/spinner6"
+        android:layout_alignLeft="@+id/spinnerType"
+        android:layout_alignStart="@+id/spinnerType"
+        android:id="@+id/spinnerTeacher"
         android:spinnerMode="dialog"
         android:entries="@array/teacher_array" />
 
@@ -30,7 +30,7 @@
         android:text="@string/tv_day_of_week"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/spinner6"
+        android:layout_below="@+id/spinnerTeacher"
         android:layout_alignLeft="@+id/textView11"
         android:layout_alignStart="@+id/textView11"
         android:layout_marginTop="26dp"
@@ -40,9 +40,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/textView14"
-        android:layout_alignLeft="@+id/spinner6"
-        android:layout_alignStart="@+id/spinner6"
-        android:id="@+id/spinner7"
+        android:layout_alignLeft="@+id/spinnerTeacher"
+        android:layout_alignStart="@+id/spinnerTeacher"
+        android:id="@+id/spinnerDay"
         android:spinnerMode="dialog"
         android:entries="@array/days_array" />
 
@@ -63,7 +63,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:id="@+id/textView11"
-        android:layout_below="@+id/spinner5"
+        android:layout_below="@+id/spinnerType"
         android:layout_alignLeft="@+id/textView10"
         android:layout_alignStart="@+id/textView10" />
 
@@ -82,7 +82,7 @@
         android:layout_height="wrap_content"
         android:inputType="time"
         android:ems="10"
-        android:id="@+id/editText5"
+        android:id="@+id/etTime"
         android:layout_alignBaseline="@+id/textView16"
         android:layout_alignBottom="@+id/textView16"
         android:layout_toRightOf="@+id/textView11" />
@@ -101,20 +101,20 @@
     <Spinner
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/spinner8"
+        android:id="@+id/spinnerDiscipline"
         android:entries="@array/lessons_array"
         android:spinnerMode="dialog"
         android:layout_alignBottom="@+id/textView17"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
-        android:layout_alignLeft="@+id/spinner7"
-        android:layout_alignStart="@+id/spinner7" />
+        android:layout_alignLeft="@+id/spinnerDay"
+        android:layout_alignStart="@+id/spinnerDay" />
 
     <TextView
         android:text="@string/tv_comment"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/editText5"
+        android:layout_below="@+id/etTime"
         android:layout_alignLeft="@+id/textView16"
         android:layout_alignStart="@+id/textView16"
         android:layout_marginTop="22dp"
@@ -125,11 +125,11 @@
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
         android:ems="10"
-        android:id="@+id/editText"
+        android:id="@+id/etComment"
         android:layout_alignBaseline="@+id/textView"
         android:layout_alignBottom="@+id/textView"
-        android:layout_alignLeft="@+id/editText5"
-        android:layout_alignStart="@+id/editText5" />
+        android:layout_alignLeft="@+id/etTime"
+        android:layout_alignStart="@+id/etTime" />
 
     <TextView
         android:text="@string/tv_lesson_type"

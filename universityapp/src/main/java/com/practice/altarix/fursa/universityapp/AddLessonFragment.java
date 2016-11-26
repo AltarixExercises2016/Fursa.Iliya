@@ -5,9 +5,6 @@ import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
@@ -27,11 +24,11 @@ public class AddLessonFragment extends Fragment implements View.OnClickListener{
         View view = inflater.inflate(R.layout.add_fragment, container, false);
 
         floatingActionButton = (FloatingActionButton)view.findViewById(R.id.floatingActionButton2);
-        typeSpinner = (Spinner)view.findViewById(R.id.spinner5);
-        teacherSpinner = (Spinner)view.findViewById(R.id.spinner6);
-        daySpinner = (Spinner)view.findViewById(R.id.spinner7);
+        typeSpinner = (Spinner)view.findViewById(R.id.spinnerType);
+        teacherSpinner = (Spinner)view.findViewById(R.id.spinnerTeacher);
+        daySpinner = (Spinner)view.findViewById(R.id.spinnerDay);
         lessonSpinner = (Spinner)view.findViewById(R.id.spinner8);
-        etTime = (EditText)view.findViewById(R.id.editText5);
+        etTime = (EditText)view.findViewById(R.id.etTime);
         etComment = (EditText)view.findViewById(R.id.editText);
 
         floatingActionButton.setOnClickListener(this);
@@ -43,6 +40,6 @@ public class AddLessonFragment extends Fragment implements View.OnClickListener{
 
     @Override
     public void onClick(View view) {
-        Toast.makeText(getActivity(), "FAB2 pressed!", Toast.LENGTH_LONG).show();
+        Toast.makeText(getActivity(), "FAB(2) pressed!", Toast.LENGTH_LONG).show();
     }
 }
