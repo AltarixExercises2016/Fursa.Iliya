@@ -1,4 +1,4 @@
-package com.practice.altarix.fursa.universityapp;
+package com.practice.altarix.fursa.universityapp.dto;
 
 
 import android.content.Context;
@@ -8,6 +8,7 @@ import android.util.Log;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String DB_LOG = "DatabaseHelper";
+
     public DatabaseHelper(Context context) {
         super(context, "LessonsDB", null, 1);
     }
@@ -19,11 +20,11 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.execSQL("CREATE TABLE LessonsTable ("
         + "id INTEGER PRIMARY KEY AUTOINCREMENT, "
         + "lection_type TEXT, "
-        + "teacher TEXT, "
-        + "day_of_week TEXT, "
+        + "lection_teacher TEXT, "
+        + "lection_day_of_week TEXT, "
         + "lection_name TEXT, "
-        + "comment TEXT, "
-        + "time TEXT" + ");");
+        + "lection_comment TEXT, "
+        + "lection_time TEXT" + ");");
     }
 
     @Override

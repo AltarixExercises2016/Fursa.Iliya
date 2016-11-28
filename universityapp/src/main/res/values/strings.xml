@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">UniversityHelper</string>
 
+    <string name="tv_help">Выребите день недели, чтобы посмотреть расписание</string>
     <string name="tv_lesson_type">Тип занятия:</string>
     <string name="tv_teacher">Преподаватель:</string>
     <string name="tv_day_of_week">День недели: </string>
