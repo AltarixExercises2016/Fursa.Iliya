@@ -1,6 +1,5 @@
 package com.practice.altarix.fursa.universityapp.fragments;
 
-import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
@@ -15,6 +14,7 @@ import android.widget.EditText;
 import android.widget.Spinner;
 
 import com.practice.altarix.fursa.universityapp.R;
+import com.practice.altarix.fursa.universityapp.dialogs.InfoDialogFragment;
 import com.practice.altarix.fursa.universityapp.dto.DbManager;
 import com.practice.altarix.fursa.universityapp.dto.LessonModel;
 
@@ -103,14 +103,21 @@ public class AddLessonFragment extends Fragment implements View.OnClickListener{
 
     private void initToolbar(View view) {
         toolbar = (Toolbar)view.findViewById(R.id.toolbar);
-        toolbar.inflateMenu(R.menu.add_fragment_menu);
+        toolbar.inflateMenu(R.menu.info_menu);
 
         toolbar.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
             @Override
             public boolean onMenuItemClick(MenuItem item) {
+                InfoDialogFragment dialogFragment = new InfoDialogFragment();
+                dialogFragment.show(getActivity().getFragmentManager(), "dialog");
                 return false;
             }
         });
+
+    }
+
+    private void showDialog() {
+
 
     }
 
