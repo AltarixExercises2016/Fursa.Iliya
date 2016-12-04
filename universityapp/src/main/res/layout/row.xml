@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <TextView
+        android:text="@string/test_lesson"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:id="@+id/lesson"
+        android:textStyle="bold"
+        android:layout_below="@+id/type"
+        android:layout_alignLeft="@+id/type"
+        android:layout_alignStart="@+id/type" />
+
+    <TextView
+        android:text="Лабораторная работа"
+        android:id="@+id/type"
+        android:background="@color/colorAccent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@android:color/black"
+        android:layout_alignBaseline="@+id/time"
+        android:layout_alignBottom="@+id/time"
+        android:layout_toRightOf="@+id/auditory"
+        android:layout_toEndOf="@+id/auditory"
+        android:layout_marginLeft="46dp"
+        android:layout_marginStart="46dp" />
+
+    <TextView
+        android:text="@string/test_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/time"
+        android:textSize="20sp"
+        android:textStyle="normal|bold"
+        android:layout_marginLeft="62dp"
+        android:layout_marginStart="62dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:text="@string/test_auditory"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/auditory"
+        android:layout_alignBottom="@+id/lesson"
+        android:layout_alignLeft="@+id/time"
+        android:layout_alignStart="@+id/time" />
+
+    <TextView
+        android:text="@string/test_teacher"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/auditory"
+        android:layout_alignLeft="@+id/auditory"
+        android:layout_alignStart="@+id/auditory"
+        android:layout_marginTop="11dp"
+        android:id="@+id/teacher"
+        android:layout_alignRight="@+id/type"
+        android:layout_alignEnd="@+id/type"
+        android:textSize="18sp"
+        android:textAlignment="textStart" />
+
+</RelativeLayout>

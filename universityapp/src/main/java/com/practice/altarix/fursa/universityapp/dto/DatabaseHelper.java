@@ -23,7 +23,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         + "lection_teacher TEXT, "
         + "lection_day_of_week TEXT, "
         + "lection_name TEXT, "
-        + "lection_comment TEXT, "
+        + "lection_auditory INTEGER, "
         + "lection_time TEXT" + ");");
     }
 

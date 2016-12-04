@@ -10,15 +10,15 @@ public class LessonModel {
     String day;
     String lection;
     String time;
-    String comment;
+    int auditory;
 
-    public LessonModel(String type, String comment, String time, String lection, String teacher, String day) {
+    public LessonModel(String type, int auditory, String time, String lection, String teacher, String day) {
         this.type = type;
-        this.comment = comment;
         this.time = time;
         this.lection = lection;
         this.teacher = teacher;
         this.day = day;
+        this.auditory = auditory;
     }
 
     public LessonModel() {
@@ -65,11 +65,12 @@ public class LessonModel {
         this.time = time;
     }
 
-    public String getComment() {
-        return comment;
+
+    public int getAuditory() {
+        return auditory;
     }
 
-    public void setComment(String comment) {
-        this.comment = comment;
+    public void setAuditory(int auditory) {
+        this.auditory = auditory;
     }
 }

@@ -1,20 +1,19 @@
 package com.practice.altarix.fursa.universityapp.fragments;
 
-import android.content.ContentValues;
 import android.content.Context;
-import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.Spinner;
 
-import com.practice.altarix.fursa.universityapp.dto.DatabaseHelper;
 import com.practice.altarix.fursa.universityapp.R;
 import com.practice.altarix.fursa.universityapp.dto.DbManager;
 import com.practice.altarix.fursa.universityapp.dto.LessonModel;
@@ -23,19 +22,23 @@ import com.practice.altarix.fursa.universityapp.dto.LessonModel;
 public class AddLessonFragment extends Fragment implements View.OnClickListener{
     private FloatingActionButton floatingActionButton;
     private Spinner typeSpinner, teacherSpinner, daySpinner, lessonSpinner;
-    private EditText etTime, etComment;
+    private EditText etTime, etAuditory;
+    private Toolbar toolbar;
     private DbManager dbManager;
     private static final String ADD_LOG = "AddDialog";
 
-    public static Fragment newInstance(Context context) {
-        AddLessonFragment f = new AddLessonFragment();
-        return f;
+    public static Fragment getInstance() {
+        Bundle args = new Bundle();
+        AddLessonFragment addLessonFragment = new AddLessonFragment();
+        addLessonFragment.setArguments(args);
+
+        return addLessonFragment;
     }
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
-        View view = inflater.inflate(R.layout.add_fragment, container, false);
+        View view = inflater.inflate(R.layout.add_fragment_layout, container, false);
         dbManager = new DbManager();
 
         floatingActionButton = (FloatingActionButton)view.findViewById(R.id.floatingActionButton2);
@@ -44,13 +47,13 @@ public class AddLessonFragment extends Fragment implements View.OnClickListener{
         daySpinner = (Spinner)view.findViewById(R.id.spinnerDay);
         lessonSpinner = (Spinner)view.findViewById(R.id.spinnerLesson);
         etTime = (EditText)view.findViewById(R.id.etTime);
-        etComment = (EditText)view.findViewById(R.id.etComment);
-
+        etAuditory = (EditText)view.findViewById(R.id.etAuditory);
         floatingActionButton.setOnClickListener(this);
         setHasOptionsMenu(true);
-
+        initToolbar(view.getRootView());
         return view;
     }
+
 
 
     @Override
@@ -59,15 +62,15 @@ public class AddLessonFragment extends Fragment implements View.OnClickListener{
                 + " Препод: " + teacherSpinner.getSelectedItem().toString()
                 + " День недели: " + daySpinner.getSelectedItem().toString()
                 + " Дисциплина: " + lessonSpinner.getSelectedItem().toString()
-                + " Время: " + etTime.getText().toString()
-                + " Комментарий: " + etComment.getText().toString());
+                + " Аудитория: " + etAuditory.getText().toString()
+                + " Время: " + etTime.getText().toString());
 
         String lectionType = typeSpinner.getSelectedItem().toString();
         String teacher = teacherSpinner.getSelectedItem().toString();
         String day = daySpinner.getSelectedItem().toString();
         String lectionName = lessonSpinner.getSelectedItem().toString();
         String time = etTime.getText().toString();
-        String comment = etComment.getText().toString();
+        String auditory = String.valueOf(etAuditory.getText());
 
 
 //        DatabaseHelper databaseHelper = new DatabaseHelper(getActivity());
@@ -90,12 +93,27 @@ public class AddLessonFragment extends Fragment implements View.OnClickListener{
         lessonModel.setDay(day);
         lessonModel.setLection(lectionName);
         lessonModel.setTime(time);
-        lessonModel.setComment(comment);
+        lessonModel.setAuditory(Integer.parseInt(auditory)); //засетить номер аудитории
 
         dbManager.addLesson(lessonModel, getActivity()); //добавление в БД!
-        dbManager.deleteLesson("Охрана труда","13:00", getActivity()); //удаление из БД!
+        dbManager.selectAll(getActivity());
+
 
     }
+
+    private void initToolbar(View view) {
+        toolbar = (Toolbar)view.findViewById(R.id.toolbar);
+        toolbar.inflateMenu(R.menu.add_fragment_menu);
+
+        toolbar.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem item) {
+                return false;
+            }
+        });
+
+    }
+
 
 
 }

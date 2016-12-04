@@ -1,25 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
+    android:paddingBottom="5dp"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/textView2"
-        android:textStyle="normal|bold"
-        android:textSize="18sp"
-        android:layout_marginTop="26dp"
-        android:textAlignment="center"
-        android:text="@string/tv_help"
-         />
-
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
 
 
         <android.support.design.widget.FloatingActionButton
@@ -37,15 +24,63 @@
             android:layout_gravity="end|bottom"
             app:rippleColor="?attr/colorControlNormal" />
 
-
-        <ListView
-            android:layout_marginTop="90dp"
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_marginTop="60dp"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:id="@+id/daysList"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:entries="@array/days_array" />
-    </FrameLayout>
+            android:layout_height="425dp"
+            android:background="@color/tabs"
+            android:weightSum="1"
+            android:id="@+id/tab_container">
+
+
+
+        </LinearLayout>
+
+        <android.support.design.widget.TabLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/tabs"
+            app:tabTextAppearance="@style/TextAppearance.StatusBar.EventContent.Line2"
+            android:background="@color/highlight"
+            app:tabSelectedTextColor="@color/white"
+            app:tabTextColor="@color/tabs"
+            android:elevation="7dp"
+            app:tabMode="scrollable"/>
+
+
+            <!--<android.support.design.widget.TabItem-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:text="@string/mon" />-->
+
+            <!--<android.support.design.widget.TabItem-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:text="@string/tue" />-->
+
+            <!--<android.support.design.widget.TabItem-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:text="@string/wed" />-->
+
+            <!--<android.support.design.widget.TabItem-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:text="@string/thu" />-->
+
+            <!--<android.support.design.widget.TabItem-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:text="@string/fri" />-->
+
+            <!--<android.support.design.widget.TabItem-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:text="@string/sat" />-->
+        <!--</android.support.design.widget.TabLayout>-->
+
+
+
 
 </android.support.design.widget.CoordinatorLayout>

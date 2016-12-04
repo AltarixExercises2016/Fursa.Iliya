@@ -2,26 +2,33 @@ package com.practice.altarix.fursa.universityapp.activities;
 
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ListView;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.practice.altarix.fursa.universityapp.R;
+import com.practice.altarix.fursa.universityapp.adapters.TabLayoutAdapter;
 import com.practice.altarix.fursa.universityapp.fragments.AddLessonFragment;
+import com.practice.altarix.fursa.universityapp.fragments.MondayFragment;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener, AdapterView.OnItemSelectedListener {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener, TabLayout.OnTabSelectedListener {
+    private static final String MAIN_LOG = "MainActivity";
+
     private FloatingActionButton floatingActionButton;
-    private ListView daysLv;
     private Fragment addLessonFragment;
     private FragmentTransaction fragmentTransaction;
-    private TextView tvInfo;
-    private static final String MAIN_LOG = "MainActivity";
+    private ViewPager viewPager;
+    private TabLayout tabLayout;
+    private TabLayoutAdapter tabLayoutAdapter;
+
+
+
+
+
 
 
     @Override
@@ -29,18 +36,21 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        daysLv = (ListView)findViewById(R.id.daysList);
-        tvInfo = (TextView)findViewById(R.id.textView2);
         floatingActionButton = (FloatingActionButton)findViewById(R.id.floatingActionButton);
-
-        daysLv.setOnItemSelectedListener(this);
         floatingActionButton.setOnClickListener(this);
-        addLessonFragment = AddLessonFragment.newInstance(getBaseContext());
+        addLessonFragment = AddLessonFragment.getInstance();
+        tabLayout = (TabLayout)findViewById(R.id.tabs);
+        tabLayout.addOnTabSelectedListener(this);
 
-
-
+        tabLayoutAdapter = new TabLayoutAdapter(getSupportFragmentManager());
+        viewPager = (ViewPager)findViewById(R.id.viewPager);
+        viewPager.setAdapter(tabLayoutAdapter);
+        tabLayout.setupWithViewPager(viewPager);
 
     }
+
+
+
 
     @Override
     protected void onResume() {
@@ -51,15 +61,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void onClick(View view) {
-
-        daysLv.setVisibility(View.INVISIBLE);
-        tvInfo.setVisibility(View.INVISIBLE);
+        tabLayout.setVisibility(View.INVISIBLE);
 
         fragmentTransaction = getSupportFragmentManager().beginTransaction();
         fragmentTransaction.replace(R.id.main_container, addLessonFragment);
         fragmentTransaction.addToBackStack(null);
         fragmentTransaction.commit();
-
         Toast.makeText(getBaseContext(), "Main FAB pressed!", Toast.LENGTH_LONG).show();
     }
 
@@ -68,24 +75,46 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onBackPressed() {
         super.onBackPressed();
+        tabLayout.setVisibility(View.VISIBLE);
         floatingActionButton.setVisibility(View.VISIBLE);
-        daysLv.setVisibility(View.VISIBLE);
-        tvInfo.setVisibility(View.VISIBLE);
 
     }
 
 
-    /*
-    TODO не работает получение дня из LV!!!!!
-     */
     @Override
-    public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-        String selectedFromList = String.valueOf((daysLv.getItemAtPosition(i)));
-        Log.d(MAIN_LOG, selectedFromList);
+    public void onTabSelected(TabLayout.Tab tab) {
+       String day = String.valueOf(tab.getText());
+
+        switch (day) {
+            case "Понедельник":
+                Toast.makeText(getBaseContext(), "ПН", Toast.LENGTH_LONG).show();
+                break;
+            case "Вторник":
+                Toast.makeText(getBaseContext(), "ВТ", Toast.LENGTH_LONG).show();
+            case "Среда":
+                Toast.makeText(getBaseContext(), "СР", Toast.LENGTH_LONG).show();
+                break;
+            case "Четверг":
+                Toast.makeText(getBaseContext(), "ЧТ", Toast.LENGTH_LONG).show();
+
+            case "Пятница":
+                Toast.makeText(getBaseContext(), "ПТ", Toast.LENGTH_LONG).show();
+                break;
+            case "Суббота":
+                Toast.makeText(getBaseContext(), "СБ", Toast.LENGTH_LONG).show();
+
+          }
+
+        }
+
+
+    @Override
+    public void onTabUnselected(TabLayout.Tab tab) {
+
     }
 
     @Override
-    public void onNothingSelected(AdapterView<?> adapterView) {
+    public void onTabReselected(TabLayout.Tab tab) {
 
     }
 }
