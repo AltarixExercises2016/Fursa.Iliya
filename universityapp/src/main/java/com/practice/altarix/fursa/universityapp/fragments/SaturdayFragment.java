@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 import com.practice.altarix.fursa.universityapp.R;
 import com.practice.altarix.fursa.universityapp.adapters.RecyclerViewAdapter;
 import com.practice.altarix.fursa.universityapp.data.LessonData;
+import com.practice.altarix.fursa.universityapp.dto.DbManager;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,6 +22,7 @@ public class SaturdayFragment extends Fragment {
     private RecyclerView recyclerView;
     private RecyclerViewAdapter recyclerViewAdapter;
     private LinearLayoutManager linearLayoutManager;
+    private DbManager dbManager;
 
     public static Fragment newInstance() {
         Bundle args = new Bundle();
@@ -30,10 +32,8 @@ public class SaturdayFragment extends Fragment {
     }
 
     private List<LessonData> initMockData() {
-        List<LessonData> lessons = new ArrayList<>();
-        lessons.add(new LessonData("Контрольная работа", "Физика", "Прокопьев Д.В", "11:00", 202));
-
-
+        dbManager = new DbManager();
+        List<LessonData> lessons = dbManager.selectLessonsByDay("Суббота", getActivity());
         return lessons;
     }
 
@@ -47,6 +47,7 @@ public class SaturdayFragment extends Fragment {
         recyclerView.setLayoutManager(linearLayoutManager);
 
         recyclerViewAdapter = new RecyclerViewAdapter(initMockData());
+        recyclerViewAdapter.notifyDataSetChanged();
         recyclerView.setAdapter(recyclerViewAdapter);
         return view;
     }

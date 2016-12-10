@@ -28,16 +28,18 @@
             android:layout_alignBottom="@+id/textView12"
             android:layout_alignParentRight="true"
             android:layout_alignParentEnd="true"
-            android:layout_alignTop="@+id/textView12" />
+            android:layout_alignTop="@+id/textView12"
+            android:spinnerMode="dialog" />
 
         <Spinner
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/spinner3"
+            android:id="@+id/spinnerTeacher"
             android:entries="@array/teacher_array"
             android:layout_alignTop="@+id/textView13"
             android:layout_alignLeft="@+id/spinnerType"
-            android:layout_alignStart="@+id/spinnerType" />
+            android:layout_alignStart="@+id/spinnerType"
+            android:spinnerMode="dialog" />
 
         <TextView
             android:text="@string/tv_teacher"
@@ -55,7 +57,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:id="@+id/textView15"
-            android:layout_below="@+id/spinner3"
+            android:layout_below="@+id/spinnerTeacher"
             android:layout_alignLeft="@+id/textView13"
             android:layout_alignStart="@+id/textView13" />
 
@@ -65,9 +67,10 @@
             android:layout_alignTop="@+id/textView15"
             android:layout_toEndOf="@+id/textView13"
             android:id="@+id/spinnerDay"
-            android:layout_alignLeft="@+id/spinner3"
-            android:layout_alignStart="@+id/spinner3"
-            android:entries="@array/days_array" />
+            android:layout_alignLeft="@+id/spinnerTeacher"
+            android:layout_alignStart="@+id/spinnerTeacher"
+            android:entries="@array/days_array"
+            android:spinnerMode="dialog" />
 
         <TextView
             android:text="@string/tv_lesson_name"
@@ -111,6 +114,27 @@
             android:layout_alignParentEnd="true"
             android:layout_alignLeft="@+id/spinnerDay"
             android:layout_alignStart="@+id/spinnerDay"
-            android:layout_alignTop="@+id/textView18" />
+            android:layout_alignTop="@+id/textView18"
+            android:spinnerMode="dialog" />
+
+        <TextView
+            android:text="@string/tv_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/etAuditory"
+            android:layout_alignLeft="@+id/textView19"
+            android:layout_alignStart="@+id/textView19"
+            android:layout_marginTop="16dp"
+            android:id="@+id/textView" />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="time"
+            android:ems="10"
+            android:layout_below="@+id/etAuditory"
+            android:layout_alignLeft="@+id/etAuditory"
+            android:layout_alignStart="@+id/etAuditory"
+            android:id="@+id/etTime" />
     </RelativeLayout>
 </LinearLayout>

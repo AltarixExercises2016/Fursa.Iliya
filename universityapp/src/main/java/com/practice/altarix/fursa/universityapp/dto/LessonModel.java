@@ -1,5 +1,7 @@
 package com.practice.altarix.fursa.universityapp.dto;
 
+import android.text.Editable;
+
 /**
  * Created by xxx on 28.11.16.
  */

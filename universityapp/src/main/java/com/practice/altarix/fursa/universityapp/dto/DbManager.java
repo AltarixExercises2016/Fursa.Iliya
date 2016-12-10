@@ -85,6 +85,37 @@ public class DbManager {
         cursor.close();
     }
 
+    public List<LessonData> selectLessonsByDay(String day, Context context) {
+        ArrayList<LessonData> lessonsList = new ArrayList<>();
+        String query = "SELECT * FROM LessonsTable WHERE lection_day_of_week = " + "'" + day + "'";
+        databaseHelper = new DatabaseHelper(context);
+        sqLiteDatabase = databaseHelper.getReadableDatabase();
+        cursor = sqLiteDatabase.rawQuery(query, null);
+
+        if(cursor.moveToFirst()) {
+            int type = cursor.getColumnIndex("lection_type");
+            int teacher = cursor.getColumnIndex("lection_teacher");
+            int lection = cursor.getColumnIndex("lection_name");
+            int time = cursor.getColumnIndex("lection_time");
+            int auditory = cursor.getColumnIndex("lection_auditory");
+
+            do {
+                String lessonType = cursor.getString(type);
+                String lessonTeacher = cursor.getString(teacher);
+                String lessonName = cursor.getString(lection);
+                String lessonTime = cursor.getString(time);
+                int lessonAuditory = cursor.getInt(auditory);
+
+                lessonsList.add(new LessonData(lessonType, lessonTeacher,
+                        lessonName, lessonTime, lessonAuditory));
+
+            } while (cursor.moveToNext());
+        } else Log.d(DB_LOG, "0 rows!!!");
+        cursor.close();
+
+        return lessonsList;
+    }
+
     public int getRowsCount(Context context) {
         String query = "SELECT * FROM LessonsTable";
         databaseHelper = new DatabaseHelper(context);

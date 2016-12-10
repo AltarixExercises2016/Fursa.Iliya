@@ -43,9 +43,7 @@
                 android:layout_alignRight="@+id/tv_type"
                 android:layout_alignEnd="@+id/tv_type"
                 android:textSize="18sp"
-                android:textAlignment="textStart"
-                android:layout_alignLeft="@+id/tv_type"
-                android:layout_alignStart="@+id/tv_type" />
+                android:textAlignment="textStart" />
 
             <TextView
                 android:text="@string/test_auditory"

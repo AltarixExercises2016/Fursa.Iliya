@@ -19,12 +19,13 @@
     <string name="test_time">09:55</string>
     <string name="test_time2">11:40</string>
     <string name="test_lesson2">ОБЖ</string>
-    <string name="test_teacher2">Шаповалов О.Г</string>
+    <string name="test_teacher2">Огромнаядлиннаяфамилия О.Г</string>
     <string name="test_auditory2">101 каб</string>
     <string name="test_type2">Лекция</string>
     <string name="test_auditory">205 каб</string>
     <string name="info">Инфо</string>
-
+    <string name="btn_del">Удалить</string>
+    <string name="btn_edit">Изменить</string>
     <string-array name="lesson_type_array">
         <item>Лекция</item>
         <item>Практика</item>

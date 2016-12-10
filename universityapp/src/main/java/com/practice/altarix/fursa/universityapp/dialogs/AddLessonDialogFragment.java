@@ -5,25 +5,73 @@ import android.app.Dialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
+import android.widget.Spinner;
 
 import com.practice.altarix.fursa.universityapp.R;
+import com.practice.altarix.fursa.universityapp.data.LessonData;
+import com.practice.altarix.fursa.universityapp.dto.DbManager;
+import com.practice.altarix.fursa.universityapp.dto.LessonModel;
 
+
+/**
+ * Created by xxx on 10.12.16.
+ */
 
 public class AddLessonDialogFragment extends DialogFragment {
     private LayoutInflater inflater;
+    private Spinner type, teacher, day, lesson;
+    private EditText etAuditory, etTime;
+    private View view;
+    private LessonModel model;
+    private DbManager db;
+
+    private static final String LOG_TAG = "AddLessonDialogFragment";
+
+
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
         inflater = getActivity().getLayoutInflater();
+        view = inflater.inflate(R.layout.add_dialog_fragment, null);
+
+        type = (Spinner)view.findViewById(R.id.spinnerType);
+        teacher = (Spinner)view.findViewById(R.id.spinnerTeacher);
+        day = (Spinner)view.findViewById(R.id.spinnerDay);
+        lesson = (Spinner)view.findViewById(R.id.spinnerLesson);
+
+        etAuditory = (EditText)view.findViewById(R.id.etAuditory);
+        etTime = (EditText)view.findViewById(R.id.etTime);
+
+        db = new DbManager();
+        model = new LessonModel();
 
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
         builder.setMessage(R.string.tv_add_title);
-        builder.setView(inflater.inflate(R.layout.add_dialog_fragment, null));
+        builder.setView(view);
         builder.setPositiveButton(R.string.OK, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
+                Log.d(LOG_TAG, "Получено: "
+                        + type.getSelectedItem().toString() + " "
+                        + teacher.getSelectedItem().toString() + " "
+                        + day.getSelectedItem().toString() + " "
+                        + lesson.getSelectedItem().toString() + " "
+                        + etAuditory.getText().toString() + " "
+                        + etTime.getText().toString());
+
+
+                model.setDay(day.getSelectedItem().toString());
+                model.setLection(lesson.getSelectedItem().toString());
+                model.setAuditory(Integer.parseInt(String.valueOf(etAuditory.getText())));
+                model.setTeacher(teacher.getSelectedItem().toString());
+                model.setTime(etTime.getText().toString());
+                model.setType(type.getSelectedItem().toString());
+
+                db.addLesson(model, getActivity());
 
             }
         });
