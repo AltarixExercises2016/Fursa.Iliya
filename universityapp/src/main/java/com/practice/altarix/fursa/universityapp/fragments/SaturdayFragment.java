@@ -16,9 +16,6 @@ import com.practice.altarix.fursa.universityapp.data.LessonData;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by xxx on 10.12.16.
- */
 
 public class SaturdayFragment extends Fragment {
     private RecyclerView recyclerView;
