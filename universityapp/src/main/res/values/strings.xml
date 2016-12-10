@@ -14,7 +14,7 @@
     <string name="tv_your_schedule">Ваше расписание на </string>
     <string name="tv_auditory">Аудитория:</string>
     <string name="test_day">Понедельник</string>
-    <string name="test_lesson">Физика</string>
+    <string name="test_lesson">Основы теории алгоритмов</string>
     <string name="test_teacher">Иванов П.М</string>
     <string name="test_time">09:55</string>
     <string name="test_time2">11:40</string>
@@ -80,4 +80,5 @@
     <string name="OK">OK</string>
     <string name="dialog_about">Приложение для просмотра и редактирования расписания ВУЗов.
     Автор: Фурса Илья Владимирович</string>
+    <string name="cancel">Отмена</string>
 </resources>

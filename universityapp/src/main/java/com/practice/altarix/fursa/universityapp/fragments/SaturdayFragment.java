@@ -1,6 +1,5 @@
 package com.practice.altarix.fursa.universityapp.fragments;
 
-import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -17,26 +16,26 @@ import com.practice.altarix.fursa.universityapp.data.LessonData;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Created by xxx on 10.12.16.
+ */
 
-public class MondayFragment extends Fragment {
+public class SaturdayFragment extends Fragment {
     private RecyclerView recyclerView;
     private RecyclerViewAdapter recyclerViewAdapter;
     private LinearLayoutManager linearLayoutManager;
 
     public static Fragment newInstance() {
         Bundle args = new Bundle();
-        MondayFragment fragment = new MondayFragment();
+        SaturdayFragment fragment = new SaturdayFragment();
         fragment.setArguments(args);
         return fragment;
     }
 
     private List<LessonData> initMockData() {
         List<LessonData> lessons = new ArrayList<>();
-        lessons.add(new LessonData("Олимпиада", "Информатика", "Поляев Г.В", "11:00", 202));
-        lessons.add(new LessonData("Олимпиада", "Информатика", "Поляев Г.В", "13:00", 202));
-        lessons.add(new LessonData("Лекция", "Программирование", "Солодов Г.И", "15:00", 205));
-        lessons.add(new LessonData("Олимпиада", "Информатика", "Поляев Г.В", "13:00", 202));
-        lessons.add(new LessonData("Лекция", "Программирование", "Солодов Г.И", "15:00", 205));
+        lessons.add(new LessonData("Контрольная работа", "Физика", "Прокопьев Д.В", "11:00", 202));
+
 
         return lessons;
     }
@@ -44,19 +43,14 @@ public class MondayFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.mon_fragment, container, false);
+        View view = inflater.inflate(R.layout.sat_fragment, container, false);
 
-        recyclerView = (RecyclerView)view.findViewById(R.id.mon_rv);
+        recyclerView = (RecyclerView)view.findViewById(R.id.sat_rv);
         linearLayoutManager = new LinearLayoutManager(this.getActivity());
         recyclerView.setLayoutManager(linearLayoutManager);
 
         recyclerViewAdapter = new RecyclerViewAdapter(initMockData());
         recyclerView.setAdapter(recyclerViewAdapter);
-
         return view;
     }
-
-
-
-
 }

@@ -13,9 +13,6 @@ import com.practice.altarix.fursa.universityapp.R;
 
 import java.util.zip.Inflater;
 
-/**
- * Created by xxx on 04.12.16.
- */
 
 public class InfoDialogFragment extends DialogFragment {
 
