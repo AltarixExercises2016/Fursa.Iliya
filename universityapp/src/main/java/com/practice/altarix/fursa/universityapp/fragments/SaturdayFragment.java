@@ -6,19 +6,20 @@ import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.practice.altarix.fursa.universityapp.R;
 import com.practice.altarix.fursa.universityapp.adapters.RecyclerViewAdapter;
 import com.practice.altarix.fursa.universityapp.data.LessonData;
 import com.practice.altarix.fursa.universityapp.dto.DbManager;
 
-import java.util.ArrayList;
 import java.util.List;
 
 
-public class SaturdayFragment extends Fragment {
+public class SaturdayFragment extends Fragment implements View.OnTouchListener {
     private RecyclerView recyclerView;
     private RecyclerViewAdapter recyclerViewAdapter;
     private LinearLayoutManager linearLayoutManager;
@@ -42,13 +43,22 @@ public class SaturdayFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.sat_fragment, container, false);
 
-        recyclerView = (RecyclerView)view.findViewById(R.id.sat_rv);
+        recyclerView = (RecyclerView) view.findViewById(R.id.sat_rv);
         linearLayoutManager = new LinearLayoutManager(this.getActivity());
         recyclerView.setLayoutManager(linearLayoutManager);
+        recyclerView.setHasFixedSize(true);
+        recyclerView.setOnTouchListener(this);
 
         recyclerViewAdapter = new RecyclerViewAdapter(initMockData());
-        recyclerViewAdapter.notifyDataSetChanged();
+        recyclerViewAdapter.notifyItemInserted(0);
         recyclerView.setAdapter(recyclerViewAdapter);
         return view;
+    }
+
+
+    @Override
+    public boolean onTouch(View view, MotionEvent motionEvent) {
+        Toast.makeText(this.getActivity(), "Clicked!", Toast.LENGTH_SHORT).show();
+        return false;
     }
 }

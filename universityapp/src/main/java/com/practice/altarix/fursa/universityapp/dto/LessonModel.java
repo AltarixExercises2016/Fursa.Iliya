@@ -1,18 +1,13 @@
 package com.practice.altarix.fursa.universityapp.dto;
 
-import android.text.Editable;
-
-/**
- * Created by xxx on 28.11.16.
- */
 
 public class LessonModel {
-    String type;
-    String teacher;
-    String day;
-    String lection;
-    String time;
-    int auditory;
+    private String type;
+    private String teacher;
+    private String day;
+    private String lection;
+    private String time;
+    private int auditory;
 
     public LessonModel(String type, int auditory, String time, String lection, String teacher, String day) {
         this.type = type;

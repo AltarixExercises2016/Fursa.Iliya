@@ -18,13 +18,13 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         Log.d(DB_LOG, "OnCreate");
 
         db.execSQL("CREATE TABLE LessonsTable ("
-        + "id INTEGER PRIMARY KEY AUTOINCREMENT, "
-        + "lection_type TEXT, "
-        + "lection_teacher TEXT, "
-        + "lection_day_of_week TEXT, "
-        + "lection_name TEXT, "
-        + "lection_auditory INTEGER, "
-        + "lection_time TEXT" + ");");
+                + "id INTEGER PRIMARY KEY AUTOINCREMENT, "
+                + "lection_type TEXT, "
+                + "lection_teacher TEXT, "
+                + "lection_day_of_week TEXT, "
+                + "lection_name TEXT, "
+                + "lection_auditory INTEGER, "
+                + "lection_time TEXT" + ");");
     }
 
     @Override

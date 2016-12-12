@@ -8,21 +8,17 @@ import android.support.v4.app.DialogFragment;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.Spinner;
 
 import com.practice.altarix.fursa.universityapp.R;
-import com.practice.altarix.fursa.universityapp.data.LessonData;
 import com.practice.altarix.fursa.universityapp.dto.DbManager;
 import com.practice.altarix.fursa.universityapp.dto.LessonModel;
 
 
-/**
- * Created by xxx on 10.12.16.
- */
 
 public class AddLessonDialogFragment extends DialogFragment {
+    private static final String LOG_TAG = "AddLessonDialogFragment";
     private LayoutInflater inflater;
     private Spinner type, teacher, day, lesson;
     private EditText etAuditory, etTime;
@@ -30,21 +26,18 @@ public class AddLessonDialogFragment extends DialogFragment {
     private LessonModel model;
     private DbManager db;
 
-    private static final String LOG_TAG = "AddLessonDialogFragment";
-
-
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
         inflater = getActivity().getLayoutInflater();
         view = inflater.inflate(R.layout.add_dialog_fragment, null);
 
-        type = (Spinner)view.findViewById(R.id.spinnerType);
-        teacher = (Spinner)view.findViewById(R.id.spinnerTeacher);
-        day = (Spinner)view.findViewById(R.id.spinnerDay);
-        lesson = (Spinner)view.findViewById(R.id.spinnerLesson);
+        type = (Spinner) view.findViewById(R.id.spinnerType);
+        teacher = (Spinner) view.findViewById(R.id.spinnerTeacher);
+        day = (Spinner) view.findViewById(R.id.spinnerDay);
+        lesson = (Spinner) view.findViewById(R.id.spinnerLesson);
 
-        etAuditory = (EditText)view.findViewById(R.id.etAuditory);
-        etTime = (EditText)view.findViewById(R.id.etTime);
+        etAuditory = (EditText) view.findViewById(R.id.etAuditory);
+        etTime = (EditText) view.findViewById(R.id.etTime);
 
         db = new DbManager();
         model = new LessonModel();
@@ -72,7 +65,6 @@ public class AddLessonDialogFragment extends DialogFragment {
                 model.setType(type.getSelectedItem().toString());
 
                 db.addLesson(model, getActivity());
-
             }
         });
 

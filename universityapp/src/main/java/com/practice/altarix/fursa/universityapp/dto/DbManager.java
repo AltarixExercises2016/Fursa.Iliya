@@ -5,7 +5,6 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
-import android.widget.TextView;
 
 import com.practice.altarix.fursa.universityapp.data.LessonData;
 
@@ -14,13 +13,11 @@ import java.util.List;
 
 
 public class DbManager {
+    private static final String DB_LOG = "DbManager";
     private DatabaseHelper databaseHelper;
     private ContentValues contentValues;
     private Cursor cursor;
     private SQLiteDatabase sqLiteDatabase;
-
-
-    private static final String DB_LOG = "DbManager";
 
     public DbManager() {
 
@@ -92,12 +89,13 @@ public class DbManager {
         sqLiteDatabase = databaseHelper.getReadableDatabase();
         cursor = sqLiteDatabase.rawQuery(query, null);
 
-        if(cursor.moveToFirst()) {
+        if (cursor.moveToFirst()) {
             int type = cursor.getColumnIndex("lection_type");
             int teacher = cursor.getColumnIndex("lection_teacher");
             int lection = cursor.getColumnIndex("lection_name");
             int time = cursor.getColumnIndex("lection_time");
             int auditory = cursor.getColumnIndex("lection_auditory");
+
 
             do {
                 String lessonType = cursor.getString(type);
@@ -106,8 +104,9 @@ public class DbManager {
                 String lessonTime = cursor.getString(time);
                 int lessonAuditory = cursor.getInt(auditory);
 
-                lessonsList.add(new LessonData(lessonType, lessonTeacher,
-                        lessonName, lessonTime, lessonAuditory));
+                lessonsList.add(new LessonData(lessonType, lessonName,
+                        lessonTeacher, lessonTime, lessonAuditory));
+
 
             } while (cursor.moveToNext());
         } else Log.d(DB_LOG, "0 rows!!!");

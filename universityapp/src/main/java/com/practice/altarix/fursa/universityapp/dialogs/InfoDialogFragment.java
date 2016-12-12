@@ -5,13 +5,8 @@ import android.app.Dialog;
 import android.app.DialogFragment;
 import android.content.DialogInterface;
 import android.os.Bundle;
-import android.support.v4.app.FragmentManager;
-import android.view.LayoutInflater;
-import android.view.View;
 
 import com.practice.altarix.fursa.universityapp.R;
-
-import java.util.zip.Inflater;
 
 
 public class InfoDialogFragment extends DialogFragment {
