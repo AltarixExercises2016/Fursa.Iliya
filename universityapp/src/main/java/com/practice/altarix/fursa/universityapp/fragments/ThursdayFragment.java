@@ -46,7 +46,8 @@ public class ThursdayFragment extends Fragment {
         linearLayoutManager = new LinearLayoutManager(this.getActivity());
         recyclerView.setLayoutManager(linearLayoutManager);
 
-        recyclerViewAdapter = new RecyclerViewAdapter(initMockData());
+        recyclerViewAdapter = new RecyclerViewAdapter();
+        recyclerViewAdapter.add(initMockData());
         recyclerView.setAdapter(recyclerViewAdapter);
 
         return view;

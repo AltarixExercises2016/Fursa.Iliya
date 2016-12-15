@@ -82,4 +82,7 @@
     <string name="dialog_about">Приложение для просмотра и редактирования расписания ВУЗов.
     Автор: Фурса Илья Владимирович</string>
     <string name="cancel">Отмена</string>
+    <string name="other">Дополнительные</string>
+    <string name="settings">Настройки</string>
+    <string name="exit">Выход</string>
 </resources>

@@ -4,6 +4,7 @@ import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v4.app.DialogFragment;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -12,9 +13,13 @@ import android.widget.EditText;
 import android.widget.Spinner;
 
 import com.practice.altarix.fursa.universityapp.R;
+import com.practice.altarix.fursa.universityapp.adapters.RecyclerViewAdapter;
+import com.practice.altarix.fursa.universityapp.data.LessonData;
 import com.practice.altarix.fursa.universityapp.dto.DbManager;
 import com.practice.altarix.fursa.universityapp.dto.LessonModel;
 
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class AddLessonDialogFragment extends DialogFragment {
@@ -25,8 +30,12 @@ public class AddLessonDialogFragment extends DialogFragment {
     private View view;
     private LessonModel model;
     private DbManager db;
+    private List<LessonData> lessonDataList;
+    private String lessonType, lessonName, lessonTeacher, lessonTime;
+    private int lessonAuditory;
 
     @Override
+    @NonNull
     public Dialog onCreateDialog(Bundle savedInstanceState) {
         inflater = getActivity().getLayoutInflater();
         view = inflater.inflate(R.layout.add_dialog_fragment, null);
@@ -48,13 +57,11 @@ public class AddLessonDialogFragment extends DialogFragment {
         builder.setPositiveButton(R.string.OK, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
-                Log.d(LOG_TAG, "Получено: "
-                        + type.getSelectedItem().toString() + " "
-                        + teacher.getSelectedItem().toString() + " "
-                        + day.getSelectedItem().toString() + " "
-                        + lesson.getSelectedItem().toString() + " "
-                        + etAuditory.getText().toString() + " "
-                        + etTime.getText().toString());
+                lessonType = type.getSelectedItem().toString();
+                lessonTeacher = teacher.getSelectedItem().toString();
+                lessonName = lesson.getSelectedItem().toString();
+                lessonAuditory = Integer.parseInt(etAuditory.getText().toString());
+                lessonTime = etTime.getText().toString();
 
 
                 model.setDay(day.getSelectedItem().toString());
@@ -65,6 +72,7 @@ public class AddLessonDialogFragment extends DialogFragment {
                 model.setType(type.getSelectedItem().toString());
 
                 db.addLesson(model, getActivity());
+
             }
         });
 

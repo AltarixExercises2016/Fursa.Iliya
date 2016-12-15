@@ -2,4 +2,5 @@
 <resources>
     <string name="dialog_info">О приложении</string>
     <string name="dialog_about">Приложение для просмотра и редактирования расписания ВУЗов. Автор: Фурса Илья Владимирович</string>
+    <string name="other">Дополнительные</string>
 </resources>

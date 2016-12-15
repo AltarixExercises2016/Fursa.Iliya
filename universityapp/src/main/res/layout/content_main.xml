@@ -1,92 +1,69 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical"
-    android:paddingBottom="5dp"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/appbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/tab_top_color"
+            app:layout_scrollFlags="scroll|enterAlways">
+        </android.support.v7.widget.Toolbar>
+
+        <android.support.design.widget.TabLayout
+            android:id="@+id/tabs"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_scrollFlags="scroll|enterAlways"
+            app:tabBackground="@color/highlight"
+            app:tabIndicatorColor="@color/colorAccent"
+            app:tabMode="scrollable"
+            app:tabSelectedTextColor="@color/white"
+            app:tabTextColor="@color/tabs">
+
+
+        </android.support.design.widget.TabLayout>
+    </android.support.design.widget.AppBarLayout>
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="400dp"
+        app:layout_behavior="android.support.design.widget.AppBarLayout$ScrollingViewBehavior">
 
         <LinearLayout
-            android:orientation="vertical"
-            android:layout_marginTop="60dp"
+            android:id="@+id/tab_container"
             android:layout_width="match_parent"
             android:layout_height="495dp"
             android:background="@color/tabs"
-            android:weightSum="1"
-            android:id="@+id/tab_container">
+            android:orientation="vertical"
+            android:weightSum="1">
 
 
-                <android.support.v7.widget.RecyclerView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/recyclerView"
-                    android:scrollbars="vertical" />
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/recyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="392dp"
+                android:scrollbars="vertical" />
 
 
         </LinearLayout>
+    </android.support.v4.widget.NestedScrollView>
 
-        <android.support.design.widget.TabLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/tabs"
-            app:tabTextAppearance="@style/TextAppearance.StatusBar.EventContent.Line2"
-            android:background="@color/highlight"
-            app:tabSelectedTextColor="@color/white"
-            app:tabTextColor="@color/tabs"
-            android:elevation="7dp"
-            app:tabMode="scrollable"/>
-
-
-
-            <!--<android.support.design.widget.TabItem-->
-                <!--android:layout_width="wrap_content"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:text="@string/mon" />-->
-
-            <!--<android.support.design.widget.TabItem-->
-                <!--android:layout_width="wrap_content"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:text="@string/tue" />-->
-
-            <!--<android.support.design.widget.TabItem-->
-                <!--android:layout_width="wrap_content"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:text="@string/wed" />-->
-
-            <!--<android.support.design.widget.TabItem-->
-                <!--android:layout_width="wrap_content"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:text="@string/thu" />-->
-
-            <!--<android.support.design.widget.TabItem-->
-                <!--android:layout_width="wrap_content"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:text="@string/fri" />-->
-
-            <!--<android.support.design.widget.TabItem-->
-                <!--android:layout_width="wrap_content"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:text="@string/sat" />-->
-        <!--</android.support.design.widget.TabLayout>-->
-
-
-
-
-        <android.support.design.widget.FloatingActionButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:clickable="true"
-            app:fabSize="normal"
-            app:srcCompat="@drawable/ic_create_white_24dp"
-            android:layout_marginBottom="15dp"
-            android:id="@+id/floatingActionButton"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true"
-            android:layout_marginRight="20dp"
-            android:layout_gravity="end|bottom"
-            app:rippleColor="?attr/colorControlNormal" />
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/floatingActionButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|right"
+        android:layout_marginBottom="10dp"
+        android:layout_marginRight="10dp"
+        android:clickable="true"
+        app:fabSize="normal"
+        app:srcCompat="@drawable/ic_create_white_24dp" />
 </android.support.design.widget.CoordinatorLayout>

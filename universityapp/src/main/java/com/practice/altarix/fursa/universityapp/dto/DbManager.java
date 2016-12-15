@@ -4,8 +4,10 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 
+import com.practice.altarix.fursa.universityapp.adapters.RecyclerViewAdapter;
 import com.practice.altarix.fursa.universityapp.data.LessonData;
 
 import java.util.ArrayList;
@@ -37,6 +39,7 @@ public class DbManager {
 
         long res = sqLiteDatabase.insert("LessonsTable", null, contentValues);
         Log.d(DB_LOG, String.valueOf(res));
+
 
     }
 
@@ -106,7 +109,6 @@ public class DbManager {
 
                 lessonsList.add(new LessonData(lessonType, lessonName,
                         lessonTeacher, lessonTime, lessonAuditory));
-
 
             } while (cursor.moveToNext());
         } else Log.d(DB_LOG, "0 rows!!!");
