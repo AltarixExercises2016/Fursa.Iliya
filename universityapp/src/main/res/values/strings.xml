@@ -3,8 +3,8 @@
 
     <string name="tv_help">Выберите день недели:</string>
     <string name="tv_lesson_type">Тип занятия:</string>
-    <string name="tv_teacher">Преподаватель:</string>
-    <string name="tv_day_of_week">День недели: </string>
+    <string name="tv_teacher">Препод:</string>
+    <string name="tv_day_of_week">День: </string>
     <string name="tv_time">Время:</string>
     <string name="tv_add_title">Добавление нового занятия</string>
     <string name="tv_lesson_name">Предмет:</string>

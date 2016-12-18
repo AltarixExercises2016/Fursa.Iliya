@@ -1,16 +1,17 @@
 package com.practice.altarix.fursa.universityapp.activities;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.TabLayout;
-import android.support.v4.view.GravityCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
@@ -47,12 +48,20 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
-        setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setHomeButtonEnabled(true);
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawerLayout, R.string.app_name, R.string.app_name);
-        drawerLayout.addDrawerListener(toggle);
-        toggle.syncState();
+        if(toolbar != null) {
+            setSupportActionBar(toolbar);
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+            getSupportActionBar().setHomeButtonEnabled(true);
+            ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawerLayout, R.string.app_name, R.string.app_name);
+            drawerLayout.addDrawerListener(toggle);
+            toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    drawerLayout.openDrawer(Gravity.LEFT);
+                }
+            });
+            toggle.syncState();
+        }
 
         dbManager = new DbManager();
         Toast.makeText(MainActivity.this, String.valueOf(dbManager.getRowsCount(getBaseContext())), Toast.LENGTH_LONG).show();
@@ -66,14 +75,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         @Override
         public void onClick (View view){
-            showAddDialog();
+            startActivity(new Intent(this, LessonActivity.class));
             Toast.makeText(getBaseContext(), "Main FAB pressed!", Toast.LENGTH_LONG).show();
         }
 
-    private void showAddDialog() {
-        AddLessonDialogFragment addLessonDialog = new AddLessonDialogFragment();
-        addLessonDialog.show(getSupportFragmentManager(), "add");
-    }
 
 
 

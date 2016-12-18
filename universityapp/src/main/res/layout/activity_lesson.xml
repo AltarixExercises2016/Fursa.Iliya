@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/appbar"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent">
+
+        <android.support.design.widget.CollapsingToolbarLayout
+            android:layout_width="match_parent"
+            app:toolbarId="@+id/toolbar"
+            app:layout_scrollFlags="scroll|enterAlways|enterAlwaysCollapsed"
+            app:contentScrim="?attr/colorPrimary"
+            android:layout_height="56dp">
+
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_height="56dp"
+                android:title="@string/tv_add_title"
+                android:layout_width="match_parent"
+                android:background="@color/colorSec"></android.support.v7.widget.Toolbar>
+        </android.support.design.widget.CollapsingToolbarLayout>
+    </android.support.design.widget.AppBarLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:text="@string/tv_lesson_type"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginLeft="29dp"
+            android:layout_marginStart="29dp"
+            android:layout_marginTop="91dp"
+            android:id="@+id/textView20" />
+
+        <Spinner
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/textView20"
+            android:layout_toRightOf="@+id/textView20"
+            android:layout_marginLeft="16dp"
+            android:layout_marginStart="16dp"
+            android:id="@+id/spinnerType"
+            android:layout_alignRight="@+id/etTime"
+            android:layout_alignEnd="@+id/etTime"
+            android:spinnerMode="dialog"
+            android:entries="@array/lesson_type_array" />
+
+        <TextView
+            android:text="@string/tv_lesson_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/spinnerType"
+            android:layout_alignLeft="@+id/textView20"
+            android:layout_alignStart="@+id/textView20"
+            android:layout_marginTop="19dp"
+            android:id="@+id/textView21" />
+
+        <Spinner
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/textView21"
+            android:layout_alignLeft="@+id/spinnerType"
+            android:layout_alignStart="@+id/spinnerType"
+            android:id="@+id/spinnerLesson"
+            android:layout_alignRight="@+id/spinnerType"
+            android:layout_alignEnd="@+id/spinnerType"
+            android:spinnerMode="dialog"
+            android:entries="@array/lessons_array" />
+
+        <TextView
+            android:text="@string/tv_teacher"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/spinnerLesson"
+            android:layout_alignLeft="@+id/textView21"
+            android:layout_alignStart="@+id/textView21"
+            android:layout_marginTop="20dp"
+            android:id="@+id/textView22" />
+
+        <Spinner
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/textView22"
+            android:layout_alignLeft="@+id/spinnerLesson"
+            android:layout_alignStart="@+id/spinnerLesson"
+            android:id="@+id/spinnerTeacher"
+            android:layout_alignRight="@+id/spinnerLesson"
+            android:layout_alignEnd="@+id/spinnerLesson"
+            android:spinnerMode="dialog"
+            android:entries="@array/teacher_array" />
+
+        <TextView
+            android:text="@string/tv_day_of_week"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/spinnerTeacher"
+            android:layout_alignRight="@+id/textView22"
+            android:layout_alignEnd="@+id/textView22"
+            android:layout_marginTop="16dp"
+            android:id="@+id/textView23"
+            android:layout_alignLeft="@+id/textView22"
+            android:layout_alignStart="@+id/textView22" />
+
+        <Spinner
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/textView23"
+            android:layout_alignLeft="@+id/spinnerTeacher"
+            android:layout_alignStart="@+id/spinnerTeacher"
+            android:id="@+id/spinnerDay"
+            android:layout_alignRight="@+id/spinnerTeacher"
+            android:layout_alignEnd="@+id/spinnerTeacher"
+            android:spinnerMode="dialog"
+            android:entries="@array/days_array" />
+
+        <TextView
+            android:text="@string/tv_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_alignLeft="@+id/textView23"
+            android:layout_alignStart="@+id/textView23"
+            android:id="@+id/textView24" />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:ems="10"
+            android:layout_below="@+id/etTime"
+            android:layout_alignLeft="@+id/etTime"
+            android:layout_alignStart="@+id/etTime"
+            android:layout_marginTop="39dp"
+            android:id="@+id/etAuditory" />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:id="@+id/etTime"
+            android:inputType="time"
+            android:layout_alignBaseline="@+id/textView24"
+            android:layout_alignBottom="@+id/textView24"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginRight="18dp"
+            android:layout_marginEnd="18dp" />
+
+        <TextView
+            android:text="@string/tv_auditory"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/etAuditory"
+            android:layout_marginTop="11dp"
+            android:id="@+id/textView26"
+            android:layout_toLeftOf="@+id/etAuditory"
+            android:layout_alignLeft="@+id/textView24"
+            android:layout_alignStart="@+id/textView24" />
+    </RelativeLayout>
+
+    <android.support.design.widget.FloatingActionButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        app:fabSize="normal"
+        android:layout_gravity="bottom|right"
+        android:layout_marginBottom="10dp"
+        android:layout_marginRight="10dp"
+        app:srcCompat="@drawable/ic_done_white_24dp"
+        android:id="@+id/floatingActionButton3" />
+
+</android.support.design.widget.CoordinatorLayout>

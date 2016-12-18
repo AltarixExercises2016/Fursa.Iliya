@@ -1,7 +1,6 @@
 package com.practice.altarix.fursa.universityapp.adapters;
 
 
-import android.content.Context;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -11,7 +10,6 @@ import android.widget.TextView;
 
 import com.practice.altarix.fursa.universityapp.R;
 import com.practice.altarix.fursa.universityapp.data.LessonData;
-import com.practice.altarix.fursa.universityapp.dto.DbManager;
 
 import java.util.List;
 
@@ -39,15 +37,10 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         holder.tvType.setText(String.valueOf(data.type));
 
     }
+
     public void add(List<LessonData> lessonList) {
         this.lessonList = lessonList;
     }
-
-//    public void updateData(List<LessonData> lessonList) {
-//        lessonList.clear();
-//        lessonList.addAll(lessonList);
-//        notifyDataSetChanged();
-//    }
 
     @Override
     public int getItemCount() {
@@ -61,12 +54,12 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         public LessonViewHolder(View itemView) {
             super(itemView);
 
-            lessonCard = (CardView)itemView.findViewById(R.id.cv);
-            tvType = (TextView)itemView.findViewById(R.id.tv_type);
-            tvTeacher = (TextView)itemView.findViewById(R.id.tv_teacher);
-            tvAuditory = (TextView)itemView.findViewById(R.id.tv_auditory);
-            tvTime = (TextView)itemView.findViewById(R.id.tv_time);
-            tvLesson = (TextView)itemView.findViewById(R.id.tv_lesson);
+            lessonCard = (CardView) itemView.findViewById(R.id.cv);
+            tvType = (TextView) itemView.findViewById(R.id.tv_type);
+            tvTeacher = (TextView) itemView.findViewById(R.id.tv_teacher);
+            tvAuditory = (TextView) itemView.findViewById(R.id.tv_auditory);
+            tvTime = (TextView) itemView.findViewById(R.id.tv_time);
+            tvLesson = (TextView) itemView.findViewById(R.id.tv_lesson);
         }
     }
 

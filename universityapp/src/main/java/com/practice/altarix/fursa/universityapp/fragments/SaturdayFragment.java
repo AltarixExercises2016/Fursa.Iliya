@@ -1,15 +1,10 @@
 package com.practice.altarix.fursa.universityapp.fragments;
 
-import android.content.Context;
-import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
@@ -17,9 +12,10 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import com.practice.altarix.fursa.universityapp.R;
+import com.practice.altarix.fursa.universityapp.activities.MainActivity;
 import com.practice.altarix.fursa.universityapp.adapters.RecyclerViewAdapter;
 import com.practice.altarix.fursa.universityapp.data.LessonData;
-import com.practice.altarix.fursa.universityapp.dto.DatabaseHelper;
+import com.practice.altarix.fursa.universityapp.dialogs.AddLessonDialogFragment;
 import com.practice.altarix.fursa.universityapp.dto.DbManager;
 
 import java.util.ArrayList;
@@ -27,8 +23,8 @@ import java.util.List;
 
 
 public class SaturdayFragment extends Fragment implements View.OnTouchListener {
-    private RecyclerView recyclerView;
-    private RecyclerViewAdapter recyclerViewAdapter;
+    public RecyclerView recyclerView;
+    public RecyclerViewAdapter recyclerViewAdapter;
     private LinearLayoutManager linearLayoutManager;
     private DbManager dbManager;
     private List<LessonData> lessons;
@@ -61,7 +57,6 @@ public class SaturdayFragment extends Fragment implements View.OnTouchListener {
     @Override
     public void onResume() {
         super.onResume();
-
     }
 
     @Override
@@ -75,5 +70,6 @@ public class SaturdayFragment extends Fragment implements View.OnTouchListener {
         lessons = dbManager.selectLessonsByDay("Суббота", getActivity());
         return lessons;
     }
+
 
 }

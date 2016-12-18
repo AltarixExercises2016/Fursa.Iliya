@@ -6,19 +6,16 @@ import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.DialogFragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Spinner;
 
 import com.practice.altarix.fursa.universityapp.R;
-import com.practice.altarix.fursa.universityapp.adapters.RecyclerViewAdapter;
 import com.practice.altarix.fursa.universityapp.data.LessonData;
 import com.practice.altarix.fursa.universityapp.dto.DbManager;
 import com.practice.altarix.fursa.universityapp.dto.LessonModel;
 
-import java.util.ArrayList;
 import java.util.List;
 
 
@@ -73,6 +70,7 @@ public class AddLessonDialogFragment extends DialogFragment {
 
                 db.addLesson(model, getActivity());
 
+
             }
         });
 
@@ -84,5 +82,7 @@ public class AddLessonDialogFragment extends DialogFragment {
         });
         return builder.create();
     }
+
+
 
 }
