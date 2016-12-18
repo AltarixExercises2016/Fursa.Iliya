@@ -14,6 +14,7 @@ import android.widget.Toast;
 import com.practice.altarix.fursa.universityapp.R;
 import com.practice.altarix.fursa.universityapp.activities.MainActivity;
 import com.practice.altarix.fursa.universityapp.adapters.RecyclerViewAdapter;
+import com.practice.altarix.fursa.universityapp.data.Days;
 import com.practice.altarix.fursa.universityapp.data.LessonData;
 import com.practice.altarix.fursa.universityapp.dialogs.AddLessonDialogFragment;
 import com.practice.altarix.fursa.universityapp.dto.DbManager;
@@ -67,7 +68,7 @@ public class SaturdayFragment extends Fragment implements View.OnTouchListener {
 
     private List<LessonData> initMockData() {
         dbManager = new DbManager();
-        lessons = dbManager.selectLessonsByDay("Суббота", getActivity());
+        lessons = dbManager.selectLessonsByDay(Days.SATURDAY, getActivity());
         return lessons;
     }
 

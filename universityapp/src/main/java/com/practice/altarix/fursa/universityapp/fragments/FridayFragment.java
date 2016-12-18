@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 
 import com.practice.altarix.fursa.universityapp.R;
 import com.practice.altarix.fursa.universityapp.adapters.RecyclerViewAdapter;
+import com.practice.altarix.fursa.universityapp.data.Days;
 import com.practice.altarix.fursa.universityapp.data.LessonData;
 import com.practice.altarix.fursa.universityapp.dto.DbManager;
 
@@ -33,7 +34,7 @@ public class FridayFragment extends Fragment {
 
     private List<LessonData> initMockData() {
         dbManager = new DbManager();
-        lessons = dbManager.selectLessonsByDay("Пятница", getActivity());
+        lessons = dbManager.selectLessonsByDay(Days.FRIDAY, getActivity());
         return lessons;
     }
 
