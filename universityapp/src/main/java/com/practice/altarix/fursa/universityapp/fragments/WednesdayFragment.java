@@ -32,12 +32,13 @@ public class WednesdayFragment extends Fragment {
         fragment.setArguments(args);
         return fragment;
     }
-
     private List<LessonData> initMockData() {
+        lessons = new ArrayList<>();
         dbManager = new DbManager();
         lessons = dbManager.selectLessonsByDay(Days.WEDNESDAY, getActivity());
         return lessons;
     }
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {

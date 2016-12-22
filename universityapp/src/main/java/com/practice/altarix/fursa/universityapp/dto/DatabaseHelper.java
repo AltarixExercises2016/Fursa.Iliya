@@ -8,23 +8,34 @@ import android.util.Log;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String DB_LOG = "DatabaseHelper";
+    private static final String DB_TABLE = "LessonsTable";
+    private static final String DB_NAME = "LessonsDB";
+    private static final String ID = "id";
+    private static final String TYPE = "lection_type";
+    private static final String TEACHER = "lection_teacher";
+    private static final String DAY = "lection_day_of_week";
+    private static final String LECTION = "lection_name";
+    private static final String AUDITORY = "lection_auditory";
+    private static final String TIME = "lection_time";
 
     public DatabaseHelper(Context context) {
-        super(context, "LessonsDB", null, 1);
+        super(context, DB_NAME, null, 1);
     }
 
     @Override
     public void onCreate(SQLiteDatabase db) {
         Log.d(DB_LOG, "OnCreate");
 
-        db.execSQL("CREATE TABLE LessonsTable ("
-                + "id INTEGER PRIMARY KEY AUTOINCREMENT, "
-                + "lection_type TEXT, "
-                + "lection_teacher TEXT, "
-                + "lection_day_of_week TEXT, "
-                + "lection_name TEXT, "
-                + "lection_auditory INTEGER, "
-                + "lection_time TEXT" + ");");
+        db.execSQL("CREATE TABLE "
+                + DB_TABLE + "("
+                + ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
+                + TYPE + " TEXT, "
+                + TEACHER + " TEXT, "
+                + DAY + " TEXT, "
+                + LECTION + " TEXT, "
+                + AUDITORY + " INTEGER, "
+                + TIME + " TEXT" + ");");
+
     }
 
     @Override

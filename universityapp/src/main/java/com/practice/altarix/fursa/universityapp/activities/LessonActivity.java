@@ -28,7 +28,6 @@ public class LessonActivity extends AppCompatActivity implements View.OnClickLis
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lesson);
-
         toolbar = (Toolbar) findViewById(R.id.toolbar);
 
         if (toolbar != null) {
@@ -82,6 +81,8 @@ public class LessonActivity extends AppCompatActivity implements View.OnClickLis
 
         dbManager = new DbManager();
         dbManager.addLesson(lessonModel, getBaseContext());
+        dbManager.selectAll(getBaseContext());
+
         Snackbar.make(view, "Перейти к списку?", Snackbar.LENGTH_LONG).setAction("Да", new View.OnClickListener() {
             @Override
             public void onClick(View view) {

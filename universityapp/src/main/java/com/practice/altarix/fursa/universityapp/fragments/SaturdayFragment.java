@@ -2,6 +2,7 @@ package com.practice.altarix.fursa.universityapp.fragments;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -23,7 +24,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class SaturdayFragment extends Fragment implements View.OnTouchListener {
+public class SaturdayFragment extends Fragment implements View.OnLongClickListener {
     public RecyclerView recyclerView;
     public RecyclerViewAdapter recyclerViewAdapter;
     private LinearLayoutManager linearLayoutManager;
@@ -47,7 +48,7 @@ public class SaturdayFragment extends Fragment implements View.OnTouchListener {
         lessons = new ArrayList<>();
         recyclerView.setLayoutManager(linearLayoutManager);
         recyclerView.setHasFixedSize(true);
-        recyclerView.setOnTouchListener(this);
+        recyclerView.setOnLongClickListener(this);
         recyclerViewAdapter = new RecyclerViewAdapter();
         recyclerViewAdapter.add(initMockData());
         recyclerView.setAdapter(recyclerViewAdapter);
@@ -60,11 +61,6 @@ public class SaturdayFragment extends Fragment implements View.OnTouchListener {
         super.onResume();
     }
 
-    @Override
-    public boolean onTouch(View view, MotionEvent motionEvent) {
-        Toast.makeText(this.getActivity(), "Clicked!", Toast.LENGTH_SHORT).show();
-        return false;
-    }
 
     private List<LessonData> initMockData() {
         dbManager = new DbManager();
@@ -73,4 +69,21 @@ public class SaturdayFragment extends Fragment implements View.OnTouchListener {
     }
 
 
+    @Override
+    public boolean onLongClick(View view) {
+        Snackbar.make(view, "Удалить занятие?", Snackbar.LENGTH_LONG).
+                setAction("Нет", new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        getView().cancelLongPress();
+                    }
+                }).
+                setAction("Да", new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        }).show();
+        return false;
+    }
 }

@@ -18,7 +18,6 @@ import android.widget.Toast;
 
 import com.practice.altarix.fursa.universityapp.R;
 import com.practice.altarix.fursa.universityapp.adapters.TabLayoutAdapter;
-import com.practice.altarix.fursa.universityapp.dialogs.AddLessonDialogFragment;
 import com.practice.altarix.fursa.universityapp.dto.DbManager;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener, NavigationView.OnNavigationItemSelectedListener {
@@ -27,6 +26,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private ViewPager viewPager;
     private TabLayout tabLayout;
     private TabLayoutAdapter tabLayoutAdapter;
+    private NavigationView navigationView;
     private DbManager dbManager;
     private Toolbar toolbar;
     private DrawerLayout drawerLayout;
@@ -48,7 +48,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
-        if(toolbar != null) {
+        navigationView = (NavigationView) findViewById(R.id.nav_view);
+
+        if (toolbar != null) {
             setSupportActionBar(toolbar);
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
             getSupportActionBar().setHomeButtonEnabled(true);
@@ -60,35 +62,33 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     drawerLayout.openDrawer(Gravity.LEFT);
                 }
             });
+
             toggle.syncState();
         }
 
         dbManager = new DbManager();
         Toast.makeText(MainActivity.this, String.valueOf(dbManager.getRowsCount(getBaseContext())), Toast.LENGTH_LONG).show();
 
-        }
+    }
 
-        @Override
-        protected void onResume () {
-            super.onResume();
-        }
+    @Override
+    protected void onResume() {
+        super.onResume();
+    }
 
-        @Override
-        public void onClick (View view){
-            startActivity(new Intent(this, LessonActivity.class));
-            Toast.makeText(getBaseContext(), "Main FAB pressed!", Toast.LENGTH_LONG).show();
-        }
-
-
-
+    @Override
+    public void onClick(View view) {
+        startActivity(new Intent(this, LessonActivity.class));
+        Toast.makeText(getBaseContext(), "Main FAB pressed!", Toast.LENGTH_LONG).show();
+    }
 
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         drawerLayout.closeDrawers();
+
         return false;
     }
-
 
 
 }

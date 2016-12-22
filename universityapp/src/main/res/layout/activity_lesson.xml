@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -22,6 +23,7 @@
                 android:title="@string/btn_edit"
                 android:layout_width="match_parent"
                 android:background="@color/colorSec"></android.support.v7.widget.Toolbar>
+
         </android.support.design.widget.CollapsingToolbarLayout>
     </android.support.design.widget.AppBarLayout>
 
@@ -52,7 +54,8 @@
             android:layout_marginStart="29dp"
             android:layout_marginTop="91dp"
             android:id="@+id/textView20"
-            android:textStyle="normal|bold" />
+            android:textStyle="normal|bold"
+            android:textSize="18sp" />
 
         <Spinner
             android:layout_width="match_parent"
@@ -76,7 +79,8 @@
             android:layout_alignStart="@+id/textView20"
             android:layout_marginTop="19dp"
             android:id="@+id/textView21"
-            android:textStyle="normal|bold" />
+            android:textStyle="normal|bold"
+            android:textSize="18sp" />
 
         <Spinner
             android:layout_width="match_parent"
@@ -99,7 +103,8 @@
             android:layout_alignStart="@+id/textView21"
             android:layout_marginTop="20dp"
             android:id="@+id/textView22"
-            android:textStyle="normal|bold" />
+            android:textStyle="normal|bold"
+            android:textSize="18sp" />
 
         <Spinner
             android:layout_width="match_parent"
@@ -124,7 +129,8 @@
             android:id="@+id/textView23"
             android:layout_alignLeft="@+id/textView22"
             android:layout_alignStart="@+id/textView22"
-            android:textStyle="normal|bold" />
+            android:textStyle="normal|bold"
+            android:textSize="18sp" />
 
         <Spinner
             android:layout_width="match_parent"
@@ -133,35 +139,61 @@
             android:layout_alignLeft="@+id/spinnerTeacher"
             android:layout_alignStart="@+id/spinnerTeacher"
             android:id="@+id/spinnerDay"
-            android:layout_alignRight="@+id/spinnerTeacher"
-            android:layout_alignEnd="@+id/spinnerTeacher"
             android:spinnerMode="dialog"
-            android:entries="@array/days_array" />
+            android:entries="@array/days_array"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true" />
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:layout_below="@+id/spinnerDay"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true">
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+        </TableLayout>
 
         <EditText
-            android:layout_width="wrap_content"
+            android:layout_width="130dp"
             android:layout_height="wrap_content"
-            android:inputType="time"
             android:ems="10"
             android:layout_centerVertical="true"
             android:id="@+id/etTime"
+            android:inputType="time"
             android:hint="@string/tv_time"
-            android:layout_toLeftOf="@+id/spinnerDay"
             android:layout_alignLeft="@+id/textView23"
-            android:layout_alignStart="@+id/textView23" />
+            android:layout_alignStart="@+id/textView23"
+            style="@android:style/Widget.Holo.Light.AutoCompleteTextView" />
 
         <EditText
-            android:layout_width="wrap_content"
+            android:layout_width="100dp"
             android:layout_height="wrap_content"
-            android:inputType="number"
+            android:inputType="textPersonName"
             android:ems="10"
             android:id="@+id/etAuditory"
             android:hint="@string/tv_auditory"
-            android:layout_below="@+id/etTime"
-            android:layout_alignLeft="@+id/etTime"
-            android:layout_alignStart="@+id/etTime"
-            android:layout_alignRight="@+id/etTime"
-            android:layout_alignEnd="@+id/etTime" />
+            android:layout_centerVertical="true"
+            android:layout_alignLeft="@+id/spinnerDay"
+            android:layout_alignStart="@+id/spinnerDay"
+            android:layout_marginLeft="50dp"
+            android:layout_marginStart="50dp" />
 
 
     </RelativeLayout>

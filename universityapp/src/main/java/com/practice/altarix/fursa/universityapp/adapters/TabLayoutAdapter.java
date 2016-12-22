@@ -4,6 +4,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
+import com.practice.altarix.fursa.universityapp.data.Days;
 import com.practice.altarix.fursa.universityapp.fragments.FridayFragment;
 import com.practice.altarix.fursa.universityapp.fragments.MondayFragment;
 import com.practice.altarix.fursa.universityapp.fragments.SaturdayFragment;
@@ -15,20 +16,18 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 
-public class TabLayoutAdapter extends FragmentPagerAdapter{
+public class TabLayoutAdapter extends FragmentPagerAdapter {
     private ArrayList<String> tabs;
 
     public TabLayoutAdapter(FragmentManager fm) {
         super(fm);
-
-        tabs = new ArrayList<>(Arrays.asList("Понедельник",
-                "Вторник",
-                "Cреда",
-                "Четверг",
-                "Пятница",
-                "Суббота"));
-
-
+        tabs = new ArrayList<>(Arrays.asList(
+                Days.MONDAY,
+                Days.TUESDAY,
+                Days.WEDNESDAY,
+                Days.THURSDAY,
+                Days.FRIDAY,
+                Days.SATURDAY));
     }
 
     @Override

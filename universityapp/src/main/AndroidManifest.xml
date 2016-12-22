@@ -19,7 +19,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activities.LessonActivity"/>
+        <activity android:name=".activities.LessonActivity"
+            android:icon="@mipmap/icon"
+            android:label="@string/tv_add_title"/>
     </application>
 
 </manifest>

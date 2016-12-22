@@ -22,12 +22,13 @@
             android:id="@+id/tabs"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:layout_scrollFlags="scroll|enterAlways"
             app:tabBackground="@color/highlight"
             app:tabIndicatorColor="@color/colorAccent"
             app:tabMode="scrollable"
             app:tabSelectedTextColor="@color/white"
-            app:tabTextColor="@color/tabs">
+            app:tabTextColor="@color/tabs"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed"
+            app:tabGravity="center">
 
 
         </android.support.design.widget.TabLayout>
@@ -45,13 +46,6 @@
             android:background="@color/tabs"
             android:orientation="vertical"
             android:weightSum="1">
-
-
-            <android.support.v7.widget.RecyclerView
-                android:id="@+id/recyclerView"
-                android:layout_width="match_parent"
-                android:layout_height="500dp"
-                android:scrollbars="vertical" />
 
 
         </LinearLayout>

@@ -60,7 +60,6 @@ public class AddLessonDialogFragment extends DialogFragment {
                 lessonAuditory = Integer.parseInt(etAuditory.getText().toString());
                 lessonTime = etTime.getText().toString();
 
-
                 model.setDay(day.getSelectedItem().toString());
                 model.setLection(lesson.getSelectedItem().toString());
                 model.setAuditory(Integer.parseInt(String.valueOf(etAuditory.getText())));
