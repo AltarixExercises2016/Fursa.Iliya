@@ -7,7 +7,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
-    private static final String DB_LOG = "LessonsDB";
+    private static final String DB_LOG = "DatabaseHelper";
 
     public DatabaseHelper(Context context) {
         super(context, "LessonsDB", null, 4);

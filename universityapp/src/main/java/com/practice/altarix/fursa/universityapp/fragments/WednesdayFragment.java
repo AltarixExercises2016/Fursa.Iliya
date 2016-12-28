@@ -22,7 +22,6 @@ public class WednesdayFragment extends Fragment {
     private RecyclerView recyclerView;
     private RecyclerViewAdapter recyclerViewAdapter;
     private LinearLayoutManager linearLayoutManager;
-    private DbManager dbManager;
     private List<LessonData> lessons;
 
     public static Fragment newInstance() {
@@ -31,15 +30,7 @@ public class WednesdayFragment extends Fragment {
         fragment.setArguments(args);
         return fragment;
     }
-  /*  private List<LessonData> initMockData() {
-        lessons = new ArrayList<>();
-        lessons.add(new LessonData("Экзамен", "Информатика", "Ангипилов С.В", "10:00", 202));
-        lessons.add(new LessonData("Экзамен", "Информатика", "Ангипилов С.В", "10:00", 202));
-        lessons.add(new LessonData("Экзамен", "Информатика", "Ангипилов С.В", "10:00", 202));
-        lessons.add(new LessonData("Экзамен", "Информатика", "Ангипилов С.В", "10:00", 202));
 
-        return lessons;
-    }*/
   public List<LessonData> initLessons() {
       DbManager dbManager = new DbManager();
       lessons = dbManager.getLessonsByDay(Days.WEDNESDAY, getActivity());

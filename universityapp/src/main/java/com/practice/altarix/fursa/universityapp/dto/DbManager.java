@@ -19,6 +19,7 @@ public class DbManager {
     private SQLiteDatabase db;
 
     public DbManager() {
+
     }
 
 

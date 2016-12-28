@@ -61,19 +61,6 @@ public class SaturdayFragment extends Fragment implements View.OnLongClickListen
     }
 
 
-/*    private List<LessonData> initMockData() {
-     //   dbManager = new DbManager();
-     //   lessons = dbManager.selectLessonsByDay(Days.SATURDAY, getActivity());
-        lessons = new ArrayList<>();
-        lessons.add(new LessonData("Экзамен", "Информатика", "Ангипилов С.В", "10:00", 202));
-        lessons.add(new LessonData("Экзамен", "Информатика", "Ангипилов С.В", "10:00", 202));
-        lessons.add(new LessonData("Экзамен", "Информатика", "Ангипилов С.В", "10:00", 202));
-        lessons.add(new LessonData("Экзамен", "Информатика", "Ангипилов С.В", "10:00", 202));
-
-        return lessons;
-    }*/
-
-
     @Override
     public boolean onLongClick(View view) {
         Snackbar.make(view, "Удалить занятие?", Snackbar.LENGTH_LONG).

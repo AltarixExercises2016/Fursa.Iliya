@@ -22,7 +22,7 @@ public class MondayFragment extends Fragment {
     private RecyclerView recyclerView;
     private RecyclerViewAdapter recyclerViewAdapter;
     private LinearLayoutManager linearLayoutManager;
-    private static List<LessonData> lessons;
+
 
     public static Fragment newInstance() {
         Bundle args = new Bundle();
@@ -33,7 +33,7 @@ public class MondayFragment extends Fragment {
 
    public List<LessonData> initLessons() {
         DbManager dbManager = new DbManager();
-        lessons = dbManager.getLessonsByDay(Days.MONDAY, getActivity());
+        List<LessonData> lessons = dbManager.getLessonsByDay(Days.MONDAY, getActivity());
         return lessons;
     }
 

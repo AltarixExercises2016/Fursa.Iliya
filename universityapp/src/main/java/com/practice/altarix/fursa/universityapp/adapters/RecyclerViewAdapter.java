@@ -1,8 +1,6 @@
 package com.practice.altarix.fursa.universityapp.adapters;
 
 
-import android.content.Context;
-import android.content.Intent;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -50,7 +48,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         return lessonList.size();
     }
 
-    public static class LessonViewHolder extends RecyclerView.ViewHolder implements AdapterView.OnLongClickListener{
+    public static class LessonViewHolder extends RecyclerView.ViewHolder implements AdapterView.OnLongClickListener {
         CardView lessonCard;
         TextView tvType, tvTeacher, tvAuditory, tvTime, tvLesson;
 

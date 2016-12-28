@@ -20,7 +20,6 @@ import com.practice.altarix.fursa.universityapp.R;
 import com.practice.altarix.fursa.universityapp.adapters.TabLayoutAdapter;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener, NavigationView.OnNavigationItemSelectedListener {
-    private static final String MAIN_LOG = "MainActivity";
     private FloatingActionButton floatingActionButton;
     private ViewPager viewPager;
     private TabLayout tabLayout;

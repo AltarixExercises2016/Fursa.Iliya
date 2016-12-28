@@ -17,14 +17,12 @@ import com.practice.altarix.fursa.universityapp.dto.LessonModel;
 
 
 public class LessonActivity extends AppCompatActivity implements View.OnClickListener {
+    private static final String LESSON_LOG = "LessonActivity";
     private Toolbar toolbar;
     private Spinner spinnerType, spinnerTeacher, spinnerDay, spinnerLesson;
     private EditText etTime, etAuditory;
     private FloatingActionButton floatingActionButton;
     private Intent intent;
-
-    private static final String LESSON_LOG = "LessonActivity";
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
