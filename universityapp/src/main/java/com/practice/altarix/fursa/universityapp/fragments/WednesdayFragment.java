@@ -15,7 +15,6 @@ import com.practice.altarix.fursa.universityapp.data.Days;
 import com.practice.altarix.fursa.universityapp.data.LessonData;
 import com.practice.altarix.fursa.universityapp.dto.DbManager;
 
-import java.util.ArrayList;
 import java.util.List;
 
 
@@ -32,13 +31,20 @@ public class WednesdayFragment extends Fragment {
         fragment.setArguments(args);
         return fragment;
     }
-    private List<LessonData> initMockData() {
+  /*  private List<LessonData> initMockData() {
         lessons = new ArrayList<>();
-        dbManager = new DbManager();
-        lessons = dbManager.selectLessonsByDay(Days.WEDNESDAY, getActivity());
-        return lessons;
-    }
+        lessons.add(new LessonData("Экзамен", "Информатика", "Ангипилов С.В", "10:00", 202));
+        lessons.add(new LessonData("Экзамен", "Информатика", "Ангипилов С.В", "10:00", 202));
+        lessons.add(new LessonData("Экзамен", "Информатика", "Ангипилов С.В", "10:00", 202));
+        lessons.add(new LessonData("Экзамен", "Информатика", "Ангипилов С.В", "10:00", 202));
 
+        return lessons;
+    }*/
+  public List<LessonData> initLessons() {
+      DbManager dbManager = new DbManager();
+      lessons = dbManager.getLessonsByDay(Days.WEDNESDAY, getActivity());
+      return lessons;
+  }
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -49,7 +55,7 @@ public class WednesdayFragment extends Fragment {
         recyclerView.setLayoutManager(linearLayoutManager);
 
         recyclerViewAdapter = new RecyclerViewAdapter();
-        recyclerViewAdapter.add(initMockData());
+        recyclerViewAdapter.add(initLessons());
         recyclerView.setAdapter(recyclerViewAdapter);
 
         return view;

@@ -15,7 +15,6 @@ import com.practice.altarix.fursa.universityapp.data.Days;
 import com.practice.altarix.fursa.universityapp.data.LessonData;
 import com.practice.altarix.fursa.universityapp.dto.DbManager;
 
-import java.util.ArrayList;
 import java.util.List;
 
 
@@ -23,9 +22,7 @@ public class MondayFragment extends Fragment {
     private RecyclerView recyclerView;
     private RecyclerViewAdapter recyclerViewAdapter;
     private LinearLayoutManager linearLayoutManager;
-    private DbManager dbManager;
-    private List<LessonData> lessons;
-
+    private static List<LessonData> lessons;
 
     public static Fragment newInstance() {
         Bundle args = new Bundle();
@@ -34,21 +31,11 @@ public class MondayFragment extends Fragment {
         return fragment;
     }
 
-//    private List<LessonData> initMockData() {
-//        List<LessonData> lessons = new ArrayList<>();
-//        lessons.add(new LessonData("Олимпиада", "Информатика", "Поляев Г.В", "11:00", 202));
-//        lessons.add(new LessonData("Олимпиада", "Информатика", "Поляев Г.В", "13:00", 202));
-//        lessons.add(new LessonData("Лекция", "Программирование", "Солодов Г.И", "15:00", 205));
-//        lessons.add(new LessonData("Олимпиада", "Информатика", "Поляев Г.В", "13:00", 202));
-//        lessons.add(new LessonData("Лекция", "Программирование", "Солодов Г.И", "15:00", 205));
-//
-//        return lessons;
-//    }
-private List<LessonData> initMockData() {
-    dbManager = new DbManager();
-    lessons = dbManager.selectLessonsByDay(Days.MONDAY, getActivity());
-    return lessons;
-}
+   public List<LessonData> initLessons() {
+        DbManager dbManager = new DbManager();
+        lessons = dbManager.getLessonsByDay(Days.MONDAY, getActivity());
+        return lessons;
+    }
 
     @Nullable
     @Override
@@ -60,11 +47,12 @@ private List<LessonData> initMockData() {
         recyclerView.setLayoutManager(linearLayoutManager);
 
         recyclerViewAdapter = new RecyclerViewAdapter();
-        recyclerViewAdapter.add(initMockData());
+        recyclerViewAdapter.add(initLessons());
         recyclerView.setAdapter(recyclerViewAdapter);
 
         return view;
     }
+
 
 
 

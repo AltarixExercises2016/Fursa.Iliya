@@ -1,83 +1,81 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:view="http://schemas.android.com/tools"
-    android:orientation="vertical"
     android:layout_width="wrap_content"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
 
 
     <android.support.v7.widget.CardView
+        android:id="@+id/cv"
         android:layout_width="400dp"
         android:layout_height="65dp"
-        android:layout_centerVertical="true"
-        android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
-        android:layout_margin="7dp"
-        android:id="@+id/cv" >
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_margin="7dp">
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
             <TextView
-                android:text="@string/test_lesson2"
+                android:id="@+id/tv_lesson"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/tv_lesson"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
                 android:layout_marginLeft="13dp"
                 android:layout_marginStart="13dp"
-                android:textStyle="normal|bold"
+                android:text="@string/test_lesson2"
                 android:textAlignment="textStart"
-                android:layout_alignParentTop="true" />
+                android:textStyle="normal|bold" />
 
             <TextView
-                android:text="@string/test_time"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
                 android:id="@+id/tv_time"
-                android:textSize="18sp"
-                android:textAlignment="textEnd"
-                android:layout_below="@+id/tv_auditory"
-                android:layout_toRightOf="@+id/tv_teacher"
-                android:layout_toLeftOf="@+id/tv_type"
-                android:layout_toStartOf="@+id/tv_type" />
-
-            <TextView
-                android:text="@string/test_auditory"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_below="@+id/tv_auditory"
+                android:layout_toLeftOf="@+id/tv_type"
+                android:layout_toRightOf="@+id/tv_teacher"
+                android:layout_toStartOf="@+id/tv_type"
+                android:text="@string/test_time"
+                android:textAlignment="textEnd"
+                android:textSize="18sp" />
+
+            <TextView
                 android:id="@+id/tv_auditory"
-                android:textAlignment="textStart"
-                android:layout_below="@+id/tv_lesson"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_alignLeft="@+id/tv_lesson"
                 android:layout_alignStart="@+id/tv_lesson"
+                android:layout_below="@+id/tv_lesson"
                 android:layout_toLeftOf="@+id/btnDeleteItem"
-                android:layout_toStartOf="@+id/btnDeleteItem" />
+                android:layout_toStartOf="@+id/btnDeleteItem"
+                android:text="@string/test_auditory"
+                android:textAlignment="textStart" />
 
             <TextView
-                android:text="@string/test_type"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
                 android:id="@+id/tv_type"
-                android:background="@color/colorAccent"
-                android:layout_alignParentTop="true"
-                android:layout_alignParentRight="true"
-                android:layout_alignParentEnd="true"
-                android:layout_margin="10dp" />
-
-            <TextView
-                android:text="@string/test_teacher2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentTop="true"
+                android:layout_margin="10dp"
+                android:background="@color/colorAccent"
+                android:text="@string/test_type" />
+
+            <TextView
                 android:id="@+id/tv_teacher"
-                android:textSize="12sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_alignBaseline="@+id/tv_time"
                 android:layout_alignBottom="@+id/tv_time"
                 android:layout_alignLeft="@+id/tv_auditory"
-                android:layout_alignStart="@+id/tv_auditory" />
+                android:layout_alignStart="@+id/tv_auditory"
+                android:text="@string/test_teacher2"
+                android:textSize="12sp" />
 
         </RelativeLayout>
 

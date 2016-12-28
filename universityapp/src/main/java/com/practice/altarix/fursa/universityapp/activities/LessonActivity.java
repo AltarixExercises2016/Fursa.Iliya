@@ -21,8 +21,10 @@ public class LessonActivity extends AppCompatActivity implements View.OnClickLis
     private Spinner spinnerType, spinnerTeacher, spinnerDay, spinnerLesson;
     private EditText etTime, etAuditory;
     private FloatingActionButton floatingActionButton;
-    private DbManager dbManager;
     private Intent intent;
+
+    private static final String LESSON_LOG = "LessonActivity";
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -79,9 +81,7 @@ public class LessonActivity extends AppCompatActivity implements View.OnClickLis
         lessonModel.setTime(time);
         lessonModel.setAuditory(auditory);
 
-        dbManager = new DbManager();
-        dbManager.addLesson(lessonModel, getBaseContext());
-        dbManager.selectAll(getBaseContext());
+        new DbManager().insertLesson(lessonModel, getApplicationContext());
 
         Snackbar.make(view, "Перейти к списку?", Snackbar.LENGTH_LONG).setAction("Да", new View.OnClickListener() {
             @Override

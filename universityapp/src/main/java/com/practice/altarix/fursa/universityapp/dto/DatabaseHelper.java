@@ -7,39 +7,36 @@ import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
-    private static final String DB_LOG = "DatabaseHelper";
-    private static final String DB_TABLE = "LessonsTable";
-    private static final String DB_NAME = "LessonsDB";
-    private static final String ID = "id";
-    private static final String TYPE = "lection_type";
-    private static final String TEACHER = "lection_teacher";
-    private static final String DAY = "lection_day_of_week";
-    private static final String LECTION = "lection_name";
-    private static final String AUDITORY = "lection_auditory";
-    private static final String TIME = "lection_time";
+    private static final String DB_LOG = "LessonsDB";
 
     public DatabaseHelper(Context context) {
-        super(context, DB_NAME, null, 1);
+        super(context, "LessonsDB", null, 4);
     }
 
     @Override
-    public void onCreate(SQLiteDatabase db) {
-        Log.d(DB_LOG, "OnCreate");
+    public void onCreate(SQLiteDatabase sqLiteDatabase) {
+        sqLiteDatabase.execSQL("CREATE TABLE `Teacher` (\n" +
+                "\t`id`\tINTEGER PRIMARY KEY AUTOINCREMENT,\n" +
+                "\t`teacher_name`\tTEXT\n" +
+                ");\n");
+        sqLiteDatabase.execSQL("PRAGMA foreign_keys=ON;\n");
+        sqLiteDatabase.execSQL("CREATE TABLE `Lesson` (\n" +
+                "\t`id`\tINTEGER PRIMARY KEY AUTOINCREMENT,\n" +
+                "\t`lesson_name`\tTEXT,\n" +
+                "\t`lesson_auditory`\tINTEGER,\n" +
+                "\t`lesson_time` TEXT,\n" +
+                "\t`lesson_day` TEXT,\n" +
+                "\t`lesson_type` TEXT,\n" +
+                "\t FOREIGN KEY(`id`) REFERENCES Teacher(id)\n" +
+                ");");
 
-        db.execSQL("CREATE TABLE "
-                + DB_TABLE + "("
-                + ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
-                + TYPE + " TEXT, "
-                + TEACHER + " TEXT, "
-                + DAY + " TEXT, "
-                + LECTION + " TEXT, "
-                + AUDITORY + " INTEGER, "
-                + TIME + " TEXT" + ");");
-
+        Log.d(DB_LOG, "OnCreate() - db created!");
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
 
     }
+
+
 }

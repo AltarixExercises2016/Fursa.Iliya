@@ -5,8 +5,8 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
 import com.practice.altarix.fursa.universityapp.data.Days;
-import com.practice.altarix.fursa.universityapp.fragments.FridayFragment;
 import com.practice.altarix.fursa.universityapp.fragments.MondayFragment;
+import com.practice.altarix.fursa.universityapp.fragments.FridayFragment;
 import com.practice.altarix.fursa.universityapp.fragments.SaturdayFragment;
 import com.practice.altarix.fursa.universityapp.fragments.ThursdayFragment;
 import com.practice.altarix.fursa.universityapp.fragments.TuesdayFragment;
@@ -59,4 +59,5 @@ public class TabLayoutAdapter extends FragmentPagerAdapter {
     public int getCount() {
         return tabs.size();
     }
+
 }

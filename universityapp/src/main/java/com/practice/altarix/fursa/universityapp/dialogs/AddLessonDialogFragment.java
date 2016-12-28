@@ -67,7 +67,7 @@ public class AddLessonDialogFragment extends DialogFragment {
                 model.setTime(etTime.getText().toString());
                 model.setType(type.getSelectedItem().toString());
 
-                db.addLesson(model, getActivity());
+           //     db.addLesson(model, getActivity()); добавляем модель в БД!
 
 
             }

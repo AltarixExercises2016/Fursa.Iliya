@@ -8,6 +8,8 @@ public class LessonModel {
     private String lection;
     private String time;
     private int auditory;
+    private static final String MODEL_LOG = "MODEL";
+
 
     public LessonModel(String type, int auditory, String time, String lection, String teacher, String day) {
         this.type = type;
@@ -62,7 +64,6 @@ public class LessonModel {
         this.time = time;
     }
 
-
     public int getAuditory() {
         return auditory;
     }
@@ -70,4 +71,5 @@ public class LessonModel {
     public void setAuditory(int auditory) {
         this.auditory = auditory;
     }
+
 }

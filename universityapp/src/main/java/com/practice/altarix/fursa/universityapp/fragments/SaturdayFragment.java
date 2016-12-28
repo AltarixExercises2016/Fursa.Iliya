@@ -7,17 +7,13 @@ import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import com.practice.altarix.fursa.universityapp.R;
-import com.practice.altarix.fursa.universityapp.activities.MainActivity;
 import com.practice.altarix.fursa.universityapp.adapters.RecyclerViewAdapter;
 import com.practice.altarix.fursa.universityapp.data.Days;
 import com.practice.altarix.fursa.universityapp.data.LessonData;
-import com.practice.altarix.fursa.universityapp.dialogs.AddLessonDialogFragment;
 import com.practice.altarix.fursa.universityapp.dto.DbManager;
 
 import java.util.ArrayList;
@@ -28,7 +24,6 @@ public class SaturdayFragment extends Fragment implements View.OnLongClickListen
     public RecyclerView recyclerView;
     public RecyclerViewAdapter recyclerViewAdapter;
     private LinearLayoutManager linearLayoutManager;
-    private DbManager dbManager;
     private List<LessonData> lessons;
 
     public static Fragment newInstance() {
@@ -38,7 +33,11 @@ public class SaturdayFragment extends Fragment implements View.OnLongClickListen
         return fragment;
     }
 
-
+    public List<LessonData> initLessons() {
+        DbManager dbManager = new DbManager();
+        lessons = dbManager.getLessonsByDay(Days.SATURDAY, getActivity());
+        return lessons;
+    }
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -50,7 +49,7 @@ public class SaturdayFragment extends Fragment implements View.OnLongClickListen
         recyclerView.setHasFixedSize(true);
         recyclerView.setOnLongClickListener(this);
         recyclerViewAdapter = new RecyclerViewAdapter();
-        recyclerViewAdapter.add(initMockData());
+        recyclerViewAdapter.add(initLessons());
         recyclerView.setAdapter(recyclerViewAdapter);
 
         return view;
@@ -62,11 +61,17 @@ public class SaturdayFragment extends Fragment implements View.OnLongClickListen
     }
 
 
-    private List<LessonData> initMockData() {
-        dbManager = new DbManager();
-        lessons = dbManager.selectLessonsByDay(Days.SATURDAY, getActivity());
+/*    private List<LessonData> initMockData() {
+     //   dbManager = new DbManager();
+     //   lessons = dbManager.selectLessonsByDay(Days.SATURDAY, getActivity());
+        lessons = new ArrayList<>();
+        lessons.add(new LessonData("Экзамен", "Информатика", "Ангипилов С.В", "10:00", 202));
+        lessons.add(new LessonData("Экзамен", "Информатика", "Ангипилов С.В", "10:00", 202));
+        lessons.add(new LessonData("Экзамен", "Информатика", "Ангипилов С.В", "10:00", 202));
+        lessons.add(new LessonData("Экзамен", "Информатика", "Ангипилов С.В", "10:00", 202));
+
         return lessons;
-    }
+    }*/
 
 
     @Override
