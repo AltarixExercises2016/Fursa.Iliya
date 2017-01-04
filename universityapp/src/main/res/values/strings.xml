@@ -5,24 +5,24 @@
     <string name="tv_lesson_type">Тип занятия:</string>
     <string name="tv_teacher">Препод:</string>
     <string name="tv_day_of_week">День: </string>
-    <string name="tv_time">Время HH:MM</string>
+    <string name="tv_time">Время:</string>
     <string name="tv_add_title">Добавление занятия</string>
     <string name="tv_lesson_name">Предмет:</string>
     <string name="tv_warning">Добавьте занятия, чтобы начать пользоваться приложением</string>
     <string name="tv_welcome">Добро пожаловать!!!</string>
     <string name="tv_comment">Комментарий:</string>
     <string name="tv_your_schedule">Ваше расписание на </string>
-    <string name="tv_auditory">Кабинет №</string>
+    <string name="tv_auditory">Каб №</string>
     <string name="test_day">Понедельник</string>
     <string name="test_lesson">Основы теории алгоритмов</string>
     <string name="test_teacher">Иванов П.М</string>
-    <string name="test_time">09:55</string>
+    <string name="test_time">00:00</string>
     <string name="test_time2">11:40</string>
     <string name="test_lesson2">ОБЖ</string>
     <string name="test_teacher2">Огромнаядлиннаяфамилия О.Г</string>
     <string name="test_auditory2">101 каб</string>
     <string name="test_type2">Лекция</string>
-    <string name="test_auditory">205 каб</string>
+    <string name="test_auditory">каб</string>
     <string name="info">Инфо</string>
     <string name="btn_del">Удалить</string>
     <string name="btn_edit">Изменить</string>
@@ -92,4 +92,12 @@
     <string name="del">Редактирование</string>
     <string name="delete_tab">Удалить урок</string>
     <string name="update_tab">Обновить урок</string>
+    <string name="vk_in">Vk</string>
+    <string name="tv_edit_title">Редактирование текущего занятия</string>
+    <string name="hint_name">Название урока</string>
+
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="alert_message">Выберите действие</string>
+    <string name="DELETE">Удалить</string>
+    <string name="EDIT">Изменить</string>
 </resources>

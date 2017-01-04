@@ -8,7 +8,6 @@ public class LessonModel {
     private String lection;
     private String time;
     private int auditory;
-    private static final String MODEL_LOG = "MODEL";
 
 
     public LessonModel(String type, int auditory, String time, String lection, String teacher, String day) {

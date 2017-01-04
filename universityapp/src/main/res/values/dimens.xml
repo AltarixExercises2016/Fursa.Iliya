@@ -11,4 +11,6 @@
     <dimen name="card_view_radius">5dp</dimen>
     <dimen name="view_margin_top">25dp</dimen>
     <dimen name="top">55dp</dimen>
+    <dimen name="tv_padding">10dp</dimen>
+    <dimen name="tv_padding_top">10dp</dimen>
 </resources>

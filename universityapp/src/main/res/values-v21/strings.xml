@@ -5,4 +5,9 @@
     <string name="other">Дополнительные</string>
     <string name="teachers">Преподаватели</string>
     <string name="del">Редактирование</string>
+    <string name="tv_edit_title">Редактирование текущего занятия</string>
+    <string name="hint_name">Название урока</string>
+    <string name="alert_message">Выберите действие</string>
+    <string name="DELETE">Удалить</string>
+    <string name="EDIT">Изменить</string>
 </resources>

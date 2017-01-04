@@ -27,3 +27,7 @@ INSERT INTO Teacher(id, name) VALUES(10, \"Шаипов А.С\")
 
 INSERT INTO Lesson(id, name, auditory, type, teacher_id, day, time)
 VALUES(7, "ОБЖ", 101, "Лекция", 10, "Понедельник", "10:00")
+
+--счетчик по дню!
+SELECT COUNT(*) FROM Teacher, Lesson WHERE
+Teacher.id = Lesson.teacher_id AND Lesson.day = 'Вторник';

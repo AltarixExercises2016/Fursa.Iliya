@@ -5,12 +5,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
 import com.practice.altarix.fursa.universityapp.data.Days;
-import com.practice.altarix.fursa.universityapp.fragments.MondayFragment;
-import com.practice.altarix.fursa.universityapp.fragments.FridayFragment;
-import com.practice.altarix.fursa.universityapp.fragments.SaturdayFragment;
-import com.practice.altarix.fursa.universityapp.fragments.ThursdayFragment;
-import com.practice.altarix.fursa.universityapp.fragments.TuesdayFragment;
-import com.practice.altarix.fursa.universityapp.fragments.WednesdayFragment;
+import com.practice.altarix.fursa.universityapp.fragments.DayFragment;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -40,17 +35,17 @@ public class TabLayoutAdapter extends FragmentPagerAdapter {
 
         switch (position) {
             case 0:
-                return MondayFragment.newInstance();
+                return DayFragment.newInstance(position);
             case 1:
-                return TuesdayFragment.newInstance();
+                return DayFragment.newInstance(position);
             case 2:
-                return WednesdayFragment.newInstance();
+                return DayFragment.newInstance(position);
             case 3:
-                return ThursdayFragment.newInstance();
+                return DayFragment.newInstance(position);
             case 4:
-                return FridayFragment.newInstance();
+                return DayFragment.newInstance(position);
             case 5:
-                return SaturdayFragment.newInstance();
+                return DayFragment.newInstance(position);
         }
         return null;
     }

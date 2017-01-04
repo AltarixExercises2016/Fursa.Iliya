@@ -1,12 +1,5 @@
 package com.practice.altarix.fursa.universityapp.data;
 
-import java.util.ArrayList;
-import java.util.List;
-
-/**
- * Created by xxx on 07.12.16.
- */
-
 public class LessonData {
     public String type;
     public String lesson;

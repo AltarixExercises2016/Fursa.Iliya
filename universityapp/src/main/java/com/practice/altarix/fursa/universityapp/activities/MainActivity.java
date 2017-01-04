@@ -20,6 +20,7 @@ import com.practice.altarix.fursa.universityapp.R;
 import com.practice.altarix.fursa.universityapp.adapters.TabLayoutAdapter;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener, NavigationView.OnNavigationItemSelectedListener {
+    private static final String MAIN_LOG = "MainActivity";
     private FloatingActionButton floatingActionButton;
     private ViewPager viewPager;
     private TabLayout tabLayout;
@@ -46,6 +47,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         navigationView = (NavigationView) findViewById(R.id.nav_view);
+        navigationView.setNavigationItemSelectedListener(this);
 
         if (toolbar != null) {
             setSupportActionBar(toolbar);
@@ -63,13 +65,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             toggle.syncState();
         }
 
-
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-
     }
 
     @Override
@@ -80,14 +80,30 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     }
 
-
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         drawerLayout.closeDrawers();
+        switch (item.getItemId()) {
+            case R.id.nav_teacher: {
+                Toast.makeText(this, "Teacher", Toast.LENGTH_SHORT).show();
+                break;
+            }
+            case R.id.nav_edit: {
+                Toast.makeText(this, "Edit", Toast.LENGTH_LONG).show();
+                break;
+            }
+            case R.id.nav_settings: {
+                Toast.makeText(this, "Settings", Toast.LENGTH_SHORT).show();
+                break;
+            }
+            case R.id.nav_vk_in: {
+                Toast.makeText(this, "VK", Toast.LENGTH_LONG).show();
+                break;
+            }
 
+        }
         return false;
     }
-
 
 
 }

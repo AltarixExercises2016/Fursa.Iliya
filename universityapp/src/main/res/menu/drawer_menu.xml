@@ -2,21 +2,41 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <group android:checkableBehavior="single">
         <item
+            android:id="@+id/nav_mon"
+            android:title="@string/mon"/>
+        <item
+            android:id="@+id/nav_tue"
+            android:title="@string/tue"/>
+        <item
+            android:id="@+id/nav_wed"
+            android:title="@string/wed"/>
+        <item
+            android:id="@+id/nav_thu"
+            android:title="@string/thu"/>
+        <item
+            android:id="@+id/nav_fri"
+            android:title="@string/fri"/>
+        <item
+            android:id="@+id/nav_sat"
+            android:title="@string/sat"/>
+    </group>
+
+    <group android:checkableBehavior="single">
+        <item
             android:id="@+id/nav_teacher"
             android:title="@string/teachers"/>
         <item android:id="@+id/nav_edit"
             android:title="@string/del">
         </item>
     </group>
-
     <item android:title="@string/other">
         <menu>
             <item
                 android:id="@+id/nav_settings"
                 android:title="@string/settings"/>
             <item
-                android:id="@+id/nav_exit"
-                android:title="@string/exit"/>
+                android:id="@+id/nav_vk_in"
+                android:title="@string/vk_in"/>
         </menu>
     </item>
 </menu>

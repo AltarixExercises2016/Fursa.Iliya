@@ -22,7 +22,6 @@ public class DbManager {
 
     }
 
-
     public List<LessonData> getLessonsByDay(String day, Context context) {
         helper = new DatabaseHelper(context);
         db = helper.getWritableDatabase();

@@ -6,6 +6,7 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
@@ -37,7 +38,7 @@ public class LessonActivity extends AppCompatActivity implements View.OnClickLis
 
         }
 
-        spinnerDay = (Spinner) findViewById(R.id.spinnerDay);
+        spinnerDay = (Spinner) findViewById(R.id.spinnerDays);
         spinnerLesson = (Spinner) findViewById(R.id.spinnerLesson);
         spinnerType = (Spinner) findViewById(R.id.spinnerType);
         spinnerTeacher = (Spinner) findViewById(R.id.spinnerTeacher);
@@ -45,7 +46,7 @@ public class LessonActivity extends AppCompatActivity implements View.OnClickLis
         etAuditory = (EditText) findViewById(R.id.etAuditory);
         etTime = (EditText) findViewById(R.id.etTime);
 
-        floatingActionButton = (FloatingActionButton) findViewById(R.id.floatingActionButton3);
+        floatingActionButton = (FloatingActionButton) findViewById(R.id.floatingActionButton);
         floatingActionButton.setOnClickListener(this);
 
         intent = new Intent(this, MainActivity.class);
@@ -54,39 +55,45 @@ public class LessonActivity extends AppCompatActivity implements View.OnClickLis
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-            case android.R.id.home:
+            case android.R.id.home: {
                 startActivity(intent);
                 finish();
                 break;
+            }
         }
         return super.onOptionsItemSelected(item);
     }
-
     @Override
     public void onClick(View view) {
-        String day = spinnerDay.getSelectedItem().toString();
-        String lesson = spinnerLesson.getSelectedItem().toString();
-        String type = spinnerType.getSelectedItem().toString();
-        String teacher = spinnerTeacher.getSelectedItem().toString();
-        String time = etTime.getText().toString();
-        int auditory = Integer.parseInt(etAuditory.getText().toString());
+        switch (view.getId()) {
+            case R.id.floatingActionButton: {
+                String day = spinnerDay.getSelectedItem().toString();
+                String lesson = spinnerLesson.getSelectedItem().toString();
+                String type = spinnerType.getSelectedItem().toString();
+                String teacher = spinnerTeacher.getSelectedItem().toString();
+                String time = etTime.getText().toString();
+                int auditory = Integer.parseInt(etAuditory.getText().toString());
 
-        LessonModel lessonModel = new LessonModel();
-        lessonModel.setLection(lesson);
-        lessonModel.setDay(day);
-        lessonModel.setTeacher(teacher);
-        lessonModel.setType(type);
-        lessonModel.setTime(time);
-        lessonModel.setAuditory(auditory);
+                LessonModel lessonModel = new LessonModel();
+                lessonModel.setLection(lesson);
+                lessonModel.setDay(day);
+                lessonModel.setTeacher(teacher);
+                lessonModel.setType(type);
+                lessonModel.setTime(time);
+                lessonModel.setAuditory(auditory);
 
-        new DbManager().insertLesson(lessonModel, getApplicationContext());
+                new DbManager().insertLesson(lessonModel, getApplicationContext());
+                Log.d(LESSON_LOG, "Lesson - inserted");
 
-        Snackbar.make(view, "Перейти к списку?", Snackbar.LENGTH_LONG).setAction("Да", new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(intent);
+                Snackbar.make(view, "Перейти к списку?", Snackbar.LENGTH_LONG).setAction("Да", new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        startActivity(intent);
+                    }
+                }).show();
+                break;
             }
-        }).show();
 
+        }
     }
 }
