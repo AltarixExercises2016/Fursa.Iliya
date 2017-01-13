@@ -87,8 +87,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         drawerLayout.closeDrawers();
         switch (item.getItemId()) {
             case R.id.nav_teacher: {
-                Toast.makeText(this, "Teacher", Toast.LENGTH_SHORT).show();
-               // startActivity(new Intent(MainActivity.this, TeacherActivity.class));
+                Toast.makeText(this, "All teachers", Toast.LENGTH_SHORT).show();
                 break;
             }
             case R.id.nav_lessons: {

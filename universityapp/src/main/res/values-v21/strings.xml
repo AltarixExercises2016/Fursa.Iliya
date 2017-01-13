@@ -23,4 +23,7 @@
     <string name="author">Фурса Илья Владимирович</string>
     <string name="del_or_update_mgs">Удалить или изменить?</string>
     <string name="nav_about">О приложении</string>
+    <string name="login">Войти</string>
+    <string name="nickname">Введите никнейм</string>
+    <string name="signIn">Войти</string>
 </resources>

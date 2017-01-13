@@ -59,7 +59,6 @@ public class DayFragment extends Fragment {
 
             }
 
-
         }
         return lessons;
     }

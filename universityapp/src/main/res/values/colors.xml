@@ -9,4 +9,6 @@
     <color name="highlight">#2d7570</color>
     <color name="selected">#b9f6ca</color>
     <color name="tab_top_color">#318498</color>
+
+    <color name="black_overlay">#66000000</color>
 </resources>

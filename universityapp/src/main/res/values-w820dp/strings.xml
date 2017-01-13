@@ -19,4 +19,5 @@
     <string name="lessons">Все уроки</string>
     <string name="del_or_update_mgs">Удалить или изменить?</string>
     <string name="nav_about">О приложении</string>
+    <string name="login">Войти</string>
 </resources>

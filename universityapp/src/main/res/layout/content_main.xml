@@ -60,5 +60,6 @@
         android:layout_marginRight="10dp"
         android:clickable="true"
         app:fabSize="normal"
+        app:layout_behavior=""
         app:srcCompat="@drawable/ic_create_white_24dp" />
 </android.support.design.widget.CoordinatorLayout>
