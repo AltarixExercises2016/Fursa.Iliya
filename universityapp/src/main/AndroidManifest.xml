@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.practice.altarix.fursa.universityapp">
+          package="com.practice.altarix.fursa.universityapp">
 
     <!-- To access Google+ APIs: -->
-    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.INTERNET"/>
 
     <application
         android:allowBackup="true"
@@ -15,16 +15,20 @@
             android:name=".activities.MainActivity"
             android:screenOrientation="portrait">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+                <action android:name="android.intent.action.MAIN"/>
 
-                <category android:name="android.intent.category.LAUNCHER" />
+                <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
         <activity
             android:name=".activities.LessonActivity"
             android:icon="@mipmap/icon"
-            android:label="@string/tv_add_title" />
-        <activity android:name=".activities.UpdateActivity"></activity>
+            android:label="@string/tv_add_title"/>
+        <activity
+            android:name=".activities.SettingsActivity"
+            android:label="@string/title_activity_settings"
+            android:theme="@style/MyMaterialTheme">
+        </activity>
     </application>
 
 </manifest>

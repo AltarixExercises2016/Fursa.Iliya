@@ -5,7 +5,7 @@
     android:id="@+id/activity_update"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.practice.altarix.fursa.universityapp.activities.UpdateActivity">
+    tools:context="com.practice.altarix.fursa.universityapp.activities.LessonActivity">
 
     <android.support.design.widget.AppBarLayout
         android:id="@+id/appbar"

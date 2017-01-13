@@ -1,5 +1,6 @@
 package com.practice.altarix.fursa.universityapp.activities;
 
+import android.app.DialogFragment;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -18,6 +19,7 @@ import android.widget.Toast;
 
 import com.practice.altarix.fursa.universityapp.R;
 import com.practice.altarix.fursa.universityapp.adapters.TabLayoutAdapter;
+import com.practice.altarix.fursa.universityapp.dialogs.InfoDialogFragment;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener, NavigationView.OnNavigationItemSelectedListener {
     private static final String MAIN_LOG = "MainActivity";
@@ -86,18 +88,21 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         switch (item.getItemId()) {
             case R.id.nav_teacher: {
                 Toast.makeText(this, "Teacher", Toast.LENGTH_SHORT).show();
+               // startActivity(new Intent(MainActivity.this, TeacherActivity.class));
                 break;
             }
-            case R.id.nav_edit: {
-                Toast.makeText(this, "Edit", Toast.LENGTH_LONG).show();
+            case R.id.nav_lessons: {
+                Toast.makeText(this, "All lessons", Toast.LENGTH_SHORT).show();
                 break;
             }
             case R.id.nav_settings: {
                 Toast.makeText(this, "Settings", Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(MainActivity.this, SettingsActivity.class));
                 break;
             }
-            case R.id.nav_vk_in: {
-                Toast.makeText(this, "VK", Toast.LENGTH_LONG).show();
+            case R.id.nav_about: {
+                DialogFragment infoDialogFragment = new InfoDialogFragment();
+                infoDialogFragment.show(getFragmentManager(), "info");
                 break;
             }
 

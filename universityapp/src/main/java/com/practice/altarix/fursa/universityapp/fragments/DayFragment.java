@@ -11,7 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.practice.altarix.fursa.universityapp.R;
-import com.practice.altarix.fursa.universityapp.adapters.RecyclerViewAdapter;
+import com.practice.altarix.fursa.universityapp.adapters.LessonRecyclerViewAdapter;
 import com.practice.altarix.fursa.universityapp.data.Days;
 import com.practice.altarix.fursa.universityapp.data.LessonData;
 import com.practice.altarix.fursa.universityapp.dto.DbManager;
@@ -24,15 +24,13 @@ public class DayFragment extends Fragment {
     private static final String DAY_FRAGMENT_LOG = "DayFragment";
     private static final String DAY_KEY = "day_key";
     private RecyclerView recyclerView;
-    private RecyclerViewAdapter recyclerViewAdapter;
+    private LessonRecyclerViewAdapter lessonRecyclerViewAdapter;
     private LinearLayoutManager linearLayoutManager;
     private List<LessonData> lessons;
-
-
+    private int day;
     public DayFragment() {
 
     }
-
     public static Fragment newInstance(int day) {
         DayFragment fragment = new DayFragment();
         Bundle args = new Bundle();
@@ -44,7 +42,7 @@ public class DayFragment extends Fragment {
     public List<LessonData> initLessons() {
         DbManager dbManager = new DbManager();
         if (getArguments() != null) {
-            int day = getArguments().getInt(DAY_FRAGMENT_KEY);
+            day = getArguments().getInt(DAY_FRAGMENT_KEY);
             Log.d(DAY_FRAGMENT_LOG, String.valueOf(day));
             if (day == 0) {
                 lessons = dbManager.getLessonsByDay(Days.MONDAY, getActivity());
@@ -58,6 +56,7 @@ public class DayFragment extends Fragment {
                 lessons = dbManager.getLessonsByDay(Days.FRIDAY, getActivity());
             } else if (day == 5) {
                 lessons = dbManager.getLessonsByDay(Days.SATURDAY, getActivity());
+
             }
 
 
@@ -74,9 +73,9 @@ public class DayFragment extends Fragment {
         linearLayoutManager = new LinearLayoutManager(this.getActivity());
         recyclerView.setLayoutManager(linearLayoutManager);
 
-        recyclerViewAdapter = new RecyclerViewAdapter();
-        recyclerViewAdapter.add(initLessons());
-        recyclerView.setAdapter(recyclerViewAdapter);
+        lessonRecyclerViewAdapter = new LessonRecyclerViewAdapter();
+        lessonRecyclerViewAdapter.add(initLessons());
+        recyclerView.setAdapter(lessonRecyclerViewAdapter);
         return view;
     }
 

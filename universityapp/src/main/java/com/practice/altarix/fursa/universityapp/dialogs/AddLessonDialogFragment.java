@@ -35,7 +35,7 @@ public class AddLessonDialogFragment extends DialogFragment {
     @NonNull
     public Dialog onCreateDialog(Bundle savedInstanceState) {
         inflater = getActivity().getLayoutInflater();
-        view = inflater.inflate(R.layout.add_dialog_fragment, null);
+        view = inflater.inflate(R.layout.info_dialog_fragment, null);
 
         type = (Spinner) view.findViewById(R.id.spinnerType);
         teacher = (Spinner) view.findViewById(R.id.spinnerTeacher);

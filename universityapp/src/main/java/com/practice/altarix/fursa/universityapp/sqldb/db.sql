@@ -31,3 +31,10 @@ VALUES(7, "ОБЖ", 101, "Лекция", 10, "Понедельник", "10:00")
 --счетчик по дню!
 SELECT COUNT(*) FROM Teacher, Lesson WHERE
 Teacher.id = Lesson.teacher_id AND Lesson.day = 'Вторник';
+
+UPDATE Teacher
+SET name='Петров С.С'
+WHERE name='Иванов А.А';
+
+UPDATE Lesson SET lesson_name='Информационная безопасность' , lesson_type='Практика' , lesson_time='12:00' ,
+lesson_auditory=205 WHERE lesson_name='Физика' , lesson_type='Лекция' , lesson_time='08:00' , lesson_auditory=105;

@@ -100,4 +100,27 @@
     <string name="alert_message">Выберите действие</string>
     <string name="DELETE">Удалить</string>
     <string name="EDIT">Изменить</string>
+
+    <string-array name="action_items">
+        <item>Изменить</item>
+        <item>Удалить</item>
+    </string-array>
+    <string name="title_activity_settings">Настройки</string>
+    <string name="db_clearn">Очистить БД</string>
+    <string name="lang">Язык приложения</string>
+
+    <string-array name="langs">
+        <item>Английский</item>
+        <item>Русский</item>
+    </string-array>
+
+    <string name="connect_us">Написать нам!</string>
+    <string name="alert_delete_message">Данные будут удалены безвозвратно</string>
+    <string name="CONTUNUE">Продолжить</string>
+    <string name="CANCEL">Отмена</string>
+    <string name="attention">Внимание!</string>
+    <string name="lessons">Все уроки</string>
+    <string name="del_or_update_mgs">Удалить или изменить?</string>
+    <string name="nav_about">О приложении</string>
+    <string name="author">Автор:</string>
 </resources>

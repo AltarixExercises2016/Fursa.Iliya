@@ -12,5 +12,7 @@
     <dimen name="view_margin_top">25dp</dimen>
     <dimen name="top">55dp</dimen>
     <dimen name="tv_padding">10dp</dimen>
+    <dimen name="teacher_margin_left">10dp</dimen>
     <dimen name="tv_padding_top">10dp</dimen>
+    <dimen name="fab_margin">16dp</dimen>
 </resources>

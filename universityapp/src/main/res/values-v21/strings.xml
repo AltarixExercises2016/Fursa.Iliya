@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="dialog_info">О приложении</string>
-    <string name="dialog_about">Приложение для просмотра и редактирования расписания ВУЗов. Автор: Фурса Илья Владимирович</string>
+    <string name="dialog_about">Приложение для просмотра расписания ВУЗов</string>
     <string name="other">Дополнительные</string>
     <string name="teachers">Преподаватели</string>
     <string name="del">Редактирование</string>
@@ -10,4 +10,17 @@
     <string name="alert_message">Выберите действие</string>
     <string name="DELETE">Удалить</string>
     <string name="EDIT">Изменить</string>
+    <string name="clean_db">Очистить БД(Удалить все имеющиеся данные из БД)</string>
+    <string name="lang">Язык приложения</string>
+    <string name="alert_delete_message">Данные будут удалены безвозвратно</string>
+    <string name="CONTUNUE">Продолжить</string>
+    <string name="CANCEL">Отмена</string>
+    <string name="attention">Внимание!</string>
+    <string name="lessons">Все уроки</string>
+    <string name="autor_label">Автор:</string>
+    <string name="github">Github:</string>
+    <string name="github_link">https://github.com/fursailya</string>
+    <string name="author">Фурса Илья Владимирович</string>
+    <string name="del_or_update_mgs">Удалить или изменить?</string>
+    <string name="nav_about">О приложении</string>
 </resources>
