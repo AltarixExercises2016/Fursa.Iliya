@@ -2,13 +2,12 @@
 <resources>
     <color name="colorPrimary">#5c6384</color>
     <color name="colorSec">#ff737dab</color>
-    <color name="colorPrimaryDark">#303f9f</color>
+    <color name="colorPrimaryDark">#737ec9</color>
     <color name="colorAccent">#cddc39</color>
     <color name="white">#ffffff</color>
     <color name="tabs">#ecedf3</color>
     <color name="highlight">#2d7570</color>
     <color name="selected">#b9f6ca</color>
-    <color name="tab_top_color">#318498</color>
-
+    <color name="tab_top_color">#42b6d2</color>
     <color name="black_overlay">#66000000</color>
 </resources>

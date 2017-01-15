@@ -9,7 +9,7 @@ import com.practice.altarix.fursa.universityapp.R;
 
 
 public class SplashActivity extends AppCompatActivity {
-    private final int SPLASH_DISPLAY_LENGTH = 3000;
+    private final int SPLASH_DISPLAY_DURATION_LENGTH = 3000;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -19,7 +19,10 @@ public class SplashActivity extends AppCompatActivity {
             @Override
             public void run() {
                 startActivity(new Intent(SplashActivity.this, MainActivity.class));
+                finish();
             }
-        }, SPLASH_DISPLAY_LENGTH);
+        }, SPLASH_DISPLAY_DURATION_LENGTH);
+
+
     }
 }

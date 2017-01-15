@@ -15,4 +15,6 @@
     <dimen name="teacher_margin_left">10dp</dimen>
     <dimen name="tv_padding_top">10dp</dimen>
     <dimen name="fab_margin">16dp</dimen>
+    <dimen name="tv_fav_margin">5dp</dimen>
+    <dimen name="teacher_margin_top">25dp</dimen>
 </resources>

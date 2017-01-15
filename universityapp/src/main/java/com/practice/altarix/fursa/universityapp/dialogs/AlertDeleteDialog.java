@@ -8,11 +8,11 @@ import android.os.Bundle;
 import android.widget.Toast;
 
 import com.practice.altarix.fursa.universityapp.R;
-import com.practice.altarix.fursa.universityapp.dto.DbManager;
+import com.practice.altarix.fursa.universityapp.dto.DatabaseManager;
 
 
 public class AlertDeleteDialog extends DialogFragment {
-    private DbManager dbManager;
+    private DatabaseManager databaseManager;
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
@@ -22,8 +22,8 @@ public class AlertDeleteDialog extends DialogFragment {
         builder.setPositiveButton(R.string.CONTUNUE, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
-                dbManager = new DbManager();
-                dbManager.deleteAll(getActivity());
+                databaseManager = new DatabaseManager();
+                databaseManager.deleteAll(getActivity());
                 Toast.makeText(getActivity(), "Бд очищена!", Toast.LENGTH_LONG).show();
             }
         });

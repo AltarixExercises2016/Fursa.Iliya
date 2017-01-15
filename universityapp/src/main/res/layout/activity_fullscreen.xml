@@ -19,7 +19,7 @@
 
     <ImageView
         android:layout_height="250dp"
-        app:srcCompat="@drawable/education"
+        app:srcCompat="@mipmap/icon"
         android:id="@+id/imageView"
         android:layout_marginTop="40dp"
         android:layout_below="@+id/textView"

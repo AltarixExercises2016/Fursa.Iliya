@@ -7,6 +7,7 @@ public class LessonData {
     public String time;
     public int auditory;
 
+
     public LessonData(String type, String lesson, String teacher, String time, int auditory) {
         this.type = type;
         this.lesson = lesson;

@@ -20,4 +20,8 @@
     <string name="del_or_update_mgs">Удалить или изменить?</string>
     <string name="nav_about">О приложении</string>
     <string name="login">Войти</string>
+    <string name="fav_chb">В избранное</string>
+    <string name="exams">Экзамены</string>
+    <string name="activity_exam">Текущие экзамены</string>
+    <string name="favourite_lessons">Важные</string>
 </resources>

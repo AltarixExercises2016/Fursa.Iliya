@@ -26,4 +26,8 @@
     <string name="login">Войти</string>
     <string name="nickname">Введите никнейм</string>
     <string name="signIn">Войти</string>
+    <string name="fav_chb">В избранное</string>
+    <string name="exams">Экзамены</string>
+    <string name="activity_exam">Текущие экзамены</string>
+    <string name="favourite_lessons">Важные</string>
 </resources>

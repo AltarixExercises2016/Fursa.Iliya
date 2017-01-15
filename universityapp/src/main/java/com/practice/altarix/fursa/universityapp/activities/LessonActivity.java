@@ -9,20 +9,24 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Spinner;
 
 import com.practice.altarix.fursa.universityapp.R;
-import com.practice.altarix.fursa.universityapp.dto.DbManager;
+import com.practice.altarix.fursa.universityapp.dto.DatabaseManager;
 import com.practice.altarix.fursa.universityapp.dto.LessonModel;
 
 
 public class LessonActivity extends AppCompatActivity implements View.OnClickListener {
     private static final String LESSON_LOG = "LessonActivity";
+    private static final String FAVOURITE = "YES";
+    private static final String NO_FAVOURITE = "NO";
     private Toolbar toolbar;
     private Spinner spinnerType, spinnerTeacher, spinnerDay, spinnerLesson;
     private EditText etTime, etAuditory;
     private FloatingActionButton floatingActionButton;
+    private CheckBox favCheckbox;
     private Intent intent;
 
     @Override
@@ -42,6 +46,7 @@ public class LessonActivity extends AppCompatActivity implements View.OnClickLis
         spinnerLesson = (Spinner) findViewById(R.id.spinnerLesson);
         spinnerType = (Spinner) findViewById(R.id.spinnerType);
         spinnerTeacher = (Spinner) findViewById(R.id.spinnerTeacher);
+        favCheckbox = (CheckBox) findViewById(R.id.favCheckbox);
 
         etAuditory = (EditText) findViewById(R.id.etAuditory);
         etTime = (EditText) findViewById(R.id.etTime);
@@ -81,8 +86,19 @@ public class LessonActivity extends AppCompatActivity implements View.OnClickLis
                 lessonModel.setType(type);
                 lessonModel.setTime(time);
                 lessonModel.setAuditory(auditory);
+                if(favCheckbox.isChecked()) {
+                    lessonModel.setTeacherFav(FAVOURITE);
+                    lessonModel.setLessonFav(FAVOURITE);
+                    Log.d(LESSON_LOG, "Fav chb - checked!");
+                } else  {
+                    lessonModel.setTeacherFav(NO_FAVOURITE);
+                    lessonModel.setLessonFav(NO_FAVOURITE);
+                    Log.d(LESSON_LOG, "Fav chb - not checked!");
 
-                new DbManager().insertLesson(lessonModel, getApplicationContext());
+                }
+
+                new DatabaseManager().insertLesson(lessonModel, getApplicationContext());
+                new DatabaseManager().selectAll(getApplicationContext());
                 Log.d(LESSON_LOG, "Lesson - inserted");
 
                 Snackbar.make(view, "Перейти к списку?", Snackbar.LENGTH_LONG).setAction("Да", new View.OnClickListener() {

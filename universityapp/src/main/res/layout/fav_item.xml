@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+    <android.support.v7.widget.CardView
+        android:layout_gravity="center"
+        android:id="@+id/favCard"
+        android:layout_height="130dp"
+        app:cardUseCompatPadding="true"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:layout_width="400dp"
+        app:cardCornerRadius="@dimen/card_view_radius">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="145dp"
+            android:elevation="8dp">
+
+            <TextView
+                android:text="@string/test_day"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/tv_fav_day"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="20dp"
+                android:textStyle="normal|bold"
+                android:textSize="16sp"/>
+
+            <TextView
+                android:text="@string/test_teacher"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="45dp"
+                android:layout_marginLeft="10dp"
+                android:id="@+id/tv_fav_teacher"/>
+
+            <TextView
+                android:text="@string/test_auditory"
+                android:layout_marginTop="65dp"
+                android:layout_marginLeft="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/tv_fav_auditory"/>
+
+            <TextView
+                android:text="@string/test_lesson"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="85dp"
+                android:layout_marginLeft="10dp"
+                android:id="@+id/tv_fav_lesson"
+                android:textStyle="normal|bold"
+                android:textSize="18sp"/>
+
+            <TextView
+                android:text="@string/test_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
+                android:layout_marginLeft="250dp"
+                android:id="@+id/tv_fav_time"
+                android:textSize="30sp"/>
+
+            <ImageButton
+                android:layout_marginTop="80dp"
+                android:layout_marginLeft="340dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@android:drawable/ic_menu_delete"
+                android:id="@+id/btnDelete"
+                style="@android:style/Widget.DeviceDefault.Light.ImageButton"
+                android:background="@color/white"/>
+
+            <TextView
+                android:text="@string/test_type"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="250dp"
+                android:id="@+id/tv_fav_type"
+                android:background="@color/colorAccent"
+                android:textSize="16sp"
+                android:textAllCaps="false"/>
+        </FrameLayout>
+    </android.support.v7.widget.CardView>
+</RelativeLayout>

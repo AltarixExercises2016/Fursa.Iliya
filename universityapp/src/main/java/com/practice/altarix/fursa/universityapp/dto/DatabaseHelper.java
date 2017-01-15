@@ -10,13 +10,14 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String DB_LOG = "DatabaseHelper";
 
     public DatabaseHelper(Context context) {
-        super(context, "LessonsDB", null, 4);
+        super(context, "LessonsDB", null, 5);
     }
 
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
         sqLiteDatabase.execSQL("CREATE TABLE `Teacher` (\n" +
                 "\t`id`\tINTEGER PRIMARY KEY AUTOINCREMENT,\n" +
+                "\t`teacher_fav`\tTEXT,\n" +
                 "\t`teacher_name`\tTEXT\n" +
                 ");\n");
         sqLiteDatabase.execSQL("PRAGMA foreign_keys=ON;\n");
@@ -26,6 +27,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 "\t`lesson_auditory`\tINTEGER,\n" +
                 "\t`lesson_time` TEXT,\n" +
                 "\t`lesson_day` TEXT,\n" +
+                "\t`lesson_fav`\tTEXT,\n" +
                 "\t`lesson_type` TEXT,\n" +
                 "\t FOREIGN KEY(`id`) REFERENCES Teacher(id)\n" +
                 ");");

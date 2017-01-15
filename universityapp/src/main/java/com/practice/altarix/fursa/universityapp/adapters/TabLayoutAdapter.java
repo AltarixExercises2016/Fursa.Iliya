@@ -13,7 +13,6 @@ import java.util.Arrays;
 
 public class TabLayoutAdapter extends FragmentPagerAdapter {
     private ArrayList<String> tabs;
-    private static final java.lang.String DAY_KEY = "day_of_week";
 
 
     public TabLayoutAdapter(FragmentManager fm) {

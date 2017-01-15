@@ -14,7 +14,7 @@ import com.practice.altarix.fursa.universityapp.R;
 import com.practice.altarix.fursa.universityapp.adapters.LessonRecyclerViewAdapter;
 import com.practice.altarix.fursa.universityapp.data.Days;
 import com.practice.altarix.fursa.universityapp.data.LessonData;
-import com.practice.altarix.fursa.universityapp.dto.DbManager;
+import com.practice.altarix.fursa.universityapp.dto.DatabaseManager;
 
 import java.util.List;
 
@@ -40,22 +40,22 @@ public class DayFragment extends Fragment {
     }
 
     public List<LessonData> initLessons() {
-        DbManager dbManager = new DbManager();
+        DatabaseManager manager = new DatabaseManager();
         if (getArguments() != null) {
             day = getArguments().getInt(DAY_FRAGMENT_KEY);
             Log.d(DAY_FRAGMENT_LOG, String.valueOf(day));
             if (day == 0) {
-                lessons = dbManager.getLessonsByDay(Days.MONDAY, getActivity());
+                lessons = manager.getLessonsByDay(Days.MONDAY, getActivity());
             } else if (day == 1) {
-                lessons = dbManager.getLessonsByDay(Days.TUESDAY, getActivity());
+                lessons = manager.getLessonsByDay(Days.TUESDAY, getActivity());
             } else if (day == 2) {
-                lessons = dbManager.getLessonsByDay(Days.WEDNESDAY, getActivity());
+                lessons = manager.getLessonsByDay(Days.WEDNESDAY, getActivity());
             } else if (day == 3) {
-                lessons = dbManager.getLessonsByDay(Days.THURSDAY, getActivity());
+                lessons = manager.getLessonsByDay(Days.THURSDAY, getActivity());
             } else if (day == 4) {
-                lessons = dbManager.getLessonsByDay(Days.FRIDAY, getActivity());
+                lessons = manager.getLessonsByDay(Days.FRIDAY, getActivity());
             } else if (day == 5) {
-                lessons = dbManager.getLessonsByDay(Days.SATURDAY, getActivity());
+                lessons = manager.getLessonsByDay(Days.SATURDAY, getActivity());
 
             }
 

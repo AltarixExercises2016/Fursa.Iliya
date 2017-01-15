@@ -13,7 +13,7 @@ import android.widget.Spinner;
 
 import com.practice.altarix.fursa.universityapp.R;
 import com.practice.altarix.fursa.universityapp.data.LessonData;
-import com.practice.altarix.fursa.universityapp.dto.DbManager;
+import com.practice.altarix.fursa.universityapp.dto.DatabaseManager;
 import com.practice.altarix.fursa.universityapp.dto.LessonModel;
 
 import java.util.List;
@@ -26,7 +26,7 @@ public class AddLessonDialogFragment extends DialogFragment {
     private EditText etAuditory, etTime;
     private View view;
     private LessonModel model;
-    private DbManager db;
+    private DatabaseManager db;
     private List<LessonData> lessonDataList;
     private String lessonType, lessonName, lessonTeacher, lessonTime;
     private int lessonAuditory;
@@ -45,7 +45,7 @@ public class AddLessonDialogFragment extends DialogFragment {
         etAuditory = (EditText) view.findViewById(R.id.etAuditory);
         etTime = (EditText) view.findViewById(R.id.etTime);
 
-        db = new DbManager();
+        db = new DatabaseManager();
         model = new LessonModel();
 
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());

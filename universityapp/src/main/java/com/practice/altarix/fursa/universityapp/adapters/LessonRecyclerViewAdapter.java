@@ -65,5 +65,3 @@ public class LessonRecyclerViewAdapter extends RecyclerView.Adapter<LessonRecycl
     }
 
 }
-
-

@@ -5,6 +5,7 @@
     android:id="@+id/activity_update"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/tabs"
     tools:context="com.practice.altarix.fursa.universityapp.activities.LessonActivity">
 
     <android.support.design.widget.AppBarLayout
@@ -194,6 +195,15 @@
                 android:layout_alignParentStart="true"
                 android:layout_marginLeft="43dp"
                 android:layout_marginStart="43dp" />
+
+            <CheckBox
+                android:text="@string/fav_chb"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/etTime"
+                android:layout_alignLeft="@+id/textView30"
+                android:layout_alignStart="@+id/textView30"
+                android:id="@+id/favCheckbox"/>
 
         </RelativeLayout>
     </android.support.design.widget.CoordinatorLayout>

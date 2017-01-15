@@ -14,7 +14,8 @@
             android:layout_width="match_parent"
             app:layout_scrollFlags="scroll|enterAlways"
             android:id="@+id/toolbar"
-            android:background="@color/colorSec"></android.support.v7.widget.Toolbar>
+            android:background="@color/colorSec">
+        </android.support.v7.widget.Toolbar>
 
         <android.support.design.widget.TabLayout
             android:id="@+id/tabs"
@@ -49,7 +50,7 @@
     </android.support.v4.widget.NestedScrollView>
 
     <android.support.design.widget.FloatingActionButton
-        android:layout_width="wrap_content"
+        android:layout_width="203dp"
         android:layout_height="wrap_content"
         android:clickable="true"
         app:fabSize="normal"
@@ -57,5 +58,6 @@
         android:layout_marginRight="10dp"
         android:layout_gravity="bottom|right"
         app:srcCompat="@drawable/ic_create_white_24dp"
-        android:id="@+id/floatingActionButton" />
+        android:id="@+id/floatingActionButton"
+        />
 </android.support.design.widget.CoordinatorLayout>

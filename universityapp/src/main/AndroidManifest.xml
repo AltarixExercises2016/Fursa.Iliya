@@ -34,6 +34,16 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
+        <activity
+            android:name=".activities.FavouriteActivity"
+            android:label="@string/title_activity_all_lessons"
+            android:theme="@style/MyMaterialTheme">
+        </activity>
+        <activity
+            android:name=".activities.ExamActivity"
+            android:label="@string/activity_exam"
+            android:theme="@style/MyMaterialTheme">
+        </activity>
     </application>
 
 </manifest>

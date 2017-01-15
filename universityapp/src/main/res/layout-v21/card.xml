@@ -32,7 +32,8 @@
                 android:textStyle="normal|bold"
                 android:textAlignment="textStart"
                 android:layout_toStartOf="@+id/btnDeleteItem"
-                android:layout_alignParentTop="true" />
+                android:layout_alignParentTop="true"
+                android:textAllCaps="true"/>
 
             <TextView
                 android:text="@string/test_time"

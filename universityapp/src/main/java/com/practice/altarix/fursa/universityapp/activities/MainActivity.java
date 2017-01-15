@@ -92,7 +92,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
             case R.id.nav_lessons: {
                 Toast.makeText(this, "All lessons", Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(MainActivity.this, FavouriteActivity.class));
                 break;
+            }
+            case R.id.nav_exams: {
+                Toast.makeText(this, "Exams", Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(MainActivity.this, ExamActivity.class));
+                break;
+
             }
             case R.id.nav_settings: {
                 Toast.makeText(this, "Settings", Toast.LENGTH_SHORT).show();
