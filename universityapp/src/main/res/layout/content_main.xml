@@ -61,5 +61,5 @@
         android:clickable="true"
         app:fabSize="normal"
         app:layout_behavior=""
-        app:srcCompat="@drawable/ic_create_white_24dp" />
+        app:srcCompat="@drawable/ic_add" />
 </android.support.design.widget.CoordinatorLayout>

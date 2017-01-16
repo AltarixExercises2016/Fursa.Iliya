@@ -19,7 +19,7 @@ import android.widget.Toast;
 
 import com.practice.altarix.fursa.universityapp.R;
 import com.practice.altarix.fursa.universityapp.adapters.TabLayoutAdapter;
-import com.practice.altarix.fursa.universityapp.dialogs.InfoDialogFragment;
+import com.practice.altarix.fursa.universityapp.dialogs.AboutDialogFragment;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener, NavigationView.OnNavigationItemSelectedListener {
     private static final String MAIN_LOG = "MainActivity";
@@ -107,7 +107,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             }
             case R.id.nav_about: {
-                DialogFragment infoDialogFragment = new InfoDialogFragment();
+                DialogFragment infoDialogFragment = new AboutDialogFragment();
                 infoDialogFragment.show(getFragmentManager(), "info");
                 break;
             }

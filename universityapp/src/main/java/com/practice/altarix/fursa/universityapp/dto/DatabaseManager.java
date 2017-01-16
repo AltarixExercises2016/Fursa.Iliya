@@ -6,14 +6,15 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 
-import com.practice.altarix.fursa.universityapp.data.Favourite;
-import com.practice.altarix.fursa.universityapp.data.LessonData;
+import com.practice.altarix.fursa.universityapp.data.ExamDTO;
+import com.practice.altarix.fursa.universityapp.data.FavouriteDTO;
+import com.practice.altarix.fursa.universityapp.data.LessonDTO;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class DatabaseManager {
-    private static final String DB_MAN = "DBMan";
+    private static final String DB_MAN = "DatabaseManager";
     private static final String TEACHER_TABLE = "Teacher";
     private static final String LESSONS_TABLE = "Lesson";
     private static final String TEACHER_NAME = "teacher_name";
@@ -35,10 +36,10 @@ public class DatabaseManager {
 
     }
 
-    public List<LessonData> getLessonsByDay(String day, Context context) {
+    public List<LessonDTO> getLessonsByDay(String day, Context context) {
         helper = new DatabaseHelper(context);
         db = helper.getWritableDatabase();
-        List<LessonData> lessons = new ArrayList<>();
+        List<LessonDTO> lessons = new ArrayList<>();
         Cursor cursor = db.rawQuery("SELECT *\n" +
                 "FROM " + LESSONS_TABLE + "," + TEACHER_TABLE +
                 " WHERE Lesson.lesson_day = " + "'" + day + "'" + "AND " + LESSONS_TABLE
@@ -51,7 +52,7 @@ public class DatabaseManager {
             int auditory = cursor.getColumnIndex(LESSON_AUDITORY);
 
             do {
-                lessons.add(new LessonData(cursor.getString(type), cursor.getString(lesson),
+                lessons.add(new LessonDTO(cursor.getString(type), cursor.getString(lesson),
                         cursor.getString(teacher), cursor.getString(time), cursor.getInt(auditory)));
             } while (cursor.moveToNext());
         } else
@@ -112,8 +113,8 @@ public class DatabaseManager {
         }
     }
 
-    public List<Favourite> getAllFavs(Context context) {
-        List<Favourite> favs = new ArrayList<>();
+    public List<FavouriteDTO> getAllFavs(Context context) {
+        List<FavouriteDTO> favs = new ArrayList<>();
         helper = new DatabaseHelper(context);
         db = helper.getWritableDatabase();
         Cursor cursor = db.rawQuery("SELECT * FROM " + TEACHER_TABLE + "," + LESSONS_TABLE + " " +
@@ -140,7 +141,7 @@ public class DatabaseManager {
                 Log.d(DB_MAN, "AUDITORY = " + cursor.getInt(auditory));
                 Log.d(DB_MAN, "DAY = " + cursor.getString(day));
 
-                favs.add(new Favourite(cursor.getString(teacher), cursor.getString(time),  cursor.getString(type), cursor.getString(lesson), cursor.getInt(auditory),                 cursor.getString(day)));
+                favs.add(new FavouriteDTO(cursor.getString(teacher), cursor.getString(time),  cursor.getString(type), cursor.getString(lesson), cursor.getInt(auditory),                 cursor.getString(day)));
             } while (cursor.moveToNext());
         } else {
             cursor.close();
@@ -149,6 +150,41 @@ public class DatabaseManager {
         }
 
         return favs;
+    }
+
+    public List<ExamDTO> getAllExams(Context context) {
+        List<ExamDTO> examDTOList = new ArrayList<>();
+        helper = new DatabaseHelper(context);
+        db = helper.getWritableDatabase();
+        Cursor cursor = db.rawQuery("SELECT * FROM " + TEACHER_TABLE + "," + LESSONS_TABLE + " " +
+                "WHERE " + TEACHER_TABLE + "." + TEACHER_ID + "=" + LESSONS_TABLE + "." + LESSON_ID + " AND " + LESSONS_TABLE + "." + LESSON_TYPE + "='Экзамен';", null);
+
+        if(cursor.moveToFirst()) {
+            int day = cursor.getColumnIndex(LESSON_DAY);
+            int teacher = cursor.getColumnIndex(TEACHER_NAME);
+            int auditory = cursor.getColumnIndex(LESSON_AUDITORY);
+            int lesson = cursor.getColumnIndex(LESSON_NAME);
+            int type = cursor.getColumnIndex(LESSON_TYPE);
+            int time = cursor.getColumnIndex(LESSON_TIME);
+
+            do {
+
+                Log.d(DB_MAN, "TEACHER = " + cursor.getString(teacher));
+                Log.d(DB_MAN, "TYPE = " + cursor.getString(type));
+                Log.d(DB_MAN, "TIME = " + cursor.getString(time));
+                Log.d(DB_MAN, "LESSON = " + cursor.getString(lesson));
+                Log.d(DB_MAN, "AUDITORY = " + cursor.getInt(auditory));
+                Log.d(DB_MAN, "DAY = " + cursor.getString(day));
+
+                examDTOList.add(new ExamDTO(cursor.getString(teacher), cursor.getString(time),  cursor.getString(type), cursor.getString(lesson), cursor.getInt(auditory),                 cursor.getString(day)));
+            } while (cursor.moveToNext());
+        } else {
+            cursor.close();
+            helper.close();
+            db.close();
+        }
+
+        return examDTOList;
     }
 
     public void selectAll(Context context) {

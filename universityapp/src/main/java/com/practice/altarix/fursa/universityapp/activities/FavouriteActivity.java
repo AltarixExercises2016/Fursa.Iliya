@@ -10,7 +10,7 @@ import android.view.MenuItem;
 
 import com.practice.altarix.fursa.universityapp.R;
 import com.practice.altarix.fursa.universityapp.adapters.FavouriteRecyclerViewAdapter;
-import com.practice.altarix.fursa.universityapp.data.Favourite;
+import com.practice.altarix.fursa.universityapp.data.FavouriteDTO;
 import com.practice.altarix.fursa.universityapp.dto.DatabaseManager;
 
 import java.util.List;
@@ -18,16 +18,17 @@ import java.util.List;
 public class FavouriteActivity extends AppCompatActivity {
     private RecyclerView recyclerViewFav;
     private FavouriteRecyclerViewAdapter favouriteRecyclerViewAdapter;
+    private Toolbar toolbar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_all_lessons);
+        setContentView(R.layout.activity_all_favs);
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        toolbar = (Toolbar) findViewById(R.id.toolbar);
         recyclerViewFav = (RecyclerView) findViewById(R.id.recyclerViewFav);
         recyclerViewFav.setLayoutManager(new LinearLayoutManager(getBaseContext()));
         favouriteRecyclerViewAdapter = new FavouriteRecyclerViewAdapter();
-        favouriteRecyclerViewAdapter.add(initMockData());
+        favouriteRecyclerViewAdapter.add(loadLessons());
         recyclerViewFav.setAdapter(favouriteRecyclerViewAdapter);
         setSupportActionBar(toolbar);
 
@@ -35,10 +36,10 @@ public class FavouriteActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 
-    public List<Favourite> initMockData() {
+    public List<FavouriteDTO> loadLessons() {
         DatabaseManager databaseManager = new DatabaseManager();
-        List<Favourite> favouriteList = databaseManager.getAllFavs(getBaseContext());
-        return favouriteList;
+        List<FavouriteDTO> favouriteDTOList = databaseManager.getAllFavs(getBaseContext());
+        return favouriteDTOList;
     }
 
     @Override

@@ -10,7 +10,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String DB_LOG = "DatabaseHelper";
 
     public DatabaseHelper(Context context) {
-        super(context, "LessonsDB", null, 5);
+        super(context, "LessonsDB", null, 6);
     }
 
     @Override

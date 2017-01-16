@@ -13,12 +13,12 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="10dp"
-        android:layout_width="400dp"
+        android:layout_width="380dp"
         app:cardCornerRadius="@dimen/card_view_radius">
 
         <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="145dp"
+            android:layout_height="match_parent"
             android:elevation="8dp">
 
             <TextView
@@ -55,7 +55,8 @@
                 android:layout_marginLeft="10dp"
                 android:id="@+id/tv_fav_lesson"
                 android:textStyle="normal|bold"
-                android:textSize="18sp"/>
+                android:textSize="18sp"
+                android:textAllCaps="true"/>
 
             <TextView
                 android:text="@string/test_time"
@@ -65,16 +66,6 @@
                 android:layout_marginLeft="250dp"
                 android:id="@+id/tv_fav_time"
                 android:textSize="30sp"/>
-
-            <ImageButton
-                android:layout_marginTop="80dp"
-                android:layout_marginLeft="340dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:srcCompat="@android:drawable/ic_menu_delete"
-                android:id="@+id/btnDelete"
-                style="@android:style/Widget.DeviceDefault.Light.ImageButton"
-                android:background="@color/white"/>
 
             <TextView
                 android:text="@string/test_type"

@@ -11,6 +11,9 @@ public class LessonModel {
     private String teacherFav;
     private String lessonFav;
 
+    public LessonModel() {
+
+    }
 
     public LessonModel(String type, int auditory, String time, String lection,
                        String teacher, String day, String teacherFav, String lessonFav) {
@@ -22,10 +25,6 @@ public class LessonModel {
         this.auditory = auditory;
         this.lessonFav = lessonFav;
         this.teacherFav = teacherFav;
-    }
-
-    public LessonModel() {
-
     }
 
     public String getType() {
@@ -79,12 +78,15 @@ public class LessonModel {
     public String getLessonFav() {
         return lessonFav;
     }
+
     public void setLessonFav(String lessonFav) {
         this.lessonFav = lessonFav;
     }
+
     public String getTeacherFav() {
         return teacherFav;
     }
+
     public void setTeacherFav(String teacherFav) {
         this.teacherFav = teacherFav;
     }

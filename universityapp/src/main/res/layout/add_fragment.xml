@@ -131,7 +131,7 @@
         android:layout_height="wrap_content"
         android:clickable="true"
         app:fabSize="normal"
-        app:srcCompat="@drawable/ic_done_white_24dp"
+        app:srcCompat="@drawable/ic_done"
         android:layout_marginBottom="15dp"
         android:id="@+id/floatingActionButton"
         android:layout_alignParentBottom="true"

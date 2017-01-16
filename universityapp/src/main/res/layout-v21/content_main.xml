@@ -57,7 +57,7 @@
         android:layout_marginBottom="10dp"
         android:layout_marginRight="10dp"
         android:layout_gravity="bottom|right"
-        app:srcCompat="@drawable/ic_create_white_24dp"
+        app:srcCompat="@drawable/ic_add"
         android:id="@+id/floatingActionButton"
         />
 </android.support.design.widget.CoordinatorLayout>

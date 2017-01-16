@@ -39,7 +39,7 @@
             android:layout_marginRight="10dp"
             android:clickable="true"
             app:fabSize="normal"
-            app:srcCompat="@drawable/ic_done_white_24dp" />
+            app:srcCompat="@drawable/ic_done" />
 
         <RelativeLayout
             android:layout_width="match_parent"

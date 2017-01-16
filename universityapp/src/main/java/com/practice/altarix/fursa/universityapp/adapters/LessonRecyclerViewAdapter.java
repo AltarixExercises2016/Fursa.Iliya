@@ -9,13 +9,13 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.practice.altarix.fursa.universityapp.R;
-import com.practice.altarix.fursa.universityapp.data.LessonData;
+import com.practice.altarix.fursa.universityapp.data.LessonDTO;
 
 import java.util.List;
 
 
 public class LessonRecyclerViewAdapter extends RecyclerView.Adapter<LessonRecyclerViewAdapter.LessonViewHolder> {
-    private List<LessonData> lessonList;
+    private List<LessonDTO> lessonList;
 
 
     public LessonRecyclerViewAdapter() {
@@ -29,7 +29,7 @@ public class LessonRecyclerViewAdapter extends RecyclerView.Adapter<LessonRecycl
 
     @Override
     public void onBindViewHolder(LessonViewHolder holder, int position) {
-        LessonData data = lessonList.get(position);
+        LessonDTO data = lessonList.get(position);
 
         holder.tvLesson.setText(String.valueOf(data.lesson));
         holder.tvAuditory.setText(String.valueOf(data.auditory));
@@ -39,7 +39,7 @@ public class LessonRecyclerViewAdapter extends RecyclerView.Adapter<LessonRecycl
 
     }
 
-    public void add(List<LessonData> lessonList) {
+    public void add(List<LessonDTO> lessonList) {
         this.lessonList = lessonList;
     }
 

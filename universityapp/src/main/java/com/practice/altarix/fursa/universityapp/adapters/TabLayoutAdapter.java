@@ -12,12 +12,12 @@ import java.util.Arrays;
 
 
 public class TabLayoutAdapter extends FragmentPagerAdapter {
-    private ArrayList<String> tabs;
+    private ArrayList<String> dayTabs;
 
 
     public TabLayoutAdapter(FragmentManager fm) {
         super(fm);
-        tabs = new ArrayList<>(Arrays.asList(
+        dayTabs = new ArrayList<>(Arrays.asList(
                 Days.MONDAY,
                 Days.TUESDAY,
                 Days.WEDNESDAY,
@@ -28,7 +28,7 @@ public class TabLayoutAdapter extends FragmentPagerAdapter {
 
     @Override
     public CharSequence getPageTitle(int position) {
-        return tabs.get(position);
+        return dayTabs.get(position);
     }
 
     @Override
@@ -52,7 +52,7 @@ public class TabLayoutAdapter extends FragmentPagerAdapter {
 
     @Override
     public int getCount() {
-        return tabs.size();
+        return dayTabs.size();
     }
 
 }
