@@ -35,7 +35,7 @@
 * Перемещение между днями реализовано с помощью swipable tabs
 * Добавлен NavigationDrawer
 
-![app](Fursa.Iliya/universityapp/Screenshot_1484581906.png)
+[[(Fursa.Iliya/universityapp/Screenshot_1484581906.png]]
 
 
 
