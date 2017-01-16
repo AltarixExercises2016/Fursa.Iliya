@@ -35,6 +35,8 @@
 * Перемещение между днями реализовано с помощью swipable tabs
 * Добавлен NavigationDrawer
 
+![app](https://github.com/AltarixExercises2016/Fursa.Iliya/blob/master/universityapp/Screenshot_1484581906.png)
+
 
 
 
