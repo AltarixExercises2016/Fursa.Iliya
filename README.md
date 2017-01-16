@@ -26,3 +26,23 @@
 # Дополнительно 
 Попробовать разобраться с API соц сетей. Сделать возможность постить расписание в соц. сети
 
+# Что сделано!!!!
+* Возможность добавления нового урока
+* Возможность удаления всех записей из БД
+* Возможность помечать урок как важный
+* Возможность просмотра Экзаменов
+* Добавлен Сплеш экран
+* Перемещение между днями реализовано с помощью swipable tabs
+* Добавлен NavigationDrawer
+
+# Скриншоты
+----
+<img src="https://github.com/AltarixExercises2016/Fursa.Iliya/blob/master/universityapp/Screenshot_1484581906.png" width="250">
+<img src="https://github.com/AltarixExercises2016/Fursa.Iliya/blob/master/universityapp/Screenshot_1484581921.png" width="250">
+<img src="https://github.com/AltarixExercises2016/Fursa.Iliya/blob/master/universityapp/Screenshot_1484581930.png" width="250">
+<img src="https://github.com/AltarixExercises2016/Fursa.Iliya/blob/master/universityapp/Screenshot_1484581936.png" width="250">
+<img src="https://github.com/AltarixExercises2016/Fursa.Iliya/blob/master/universityapp/Screenshot_1484581971.png" width="250">
+<img src="https://github.com/AltarixExercises2016/Fursa.Iliya/blob/master/universityapp/Screenshot_1484581976.png" width="250">
+
+
+
