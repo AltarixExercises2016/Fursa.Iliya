@@ -16,7 +16,7 @@
             android:screenOrientation="portrait">
         </activity>
         <activity
-            android:name=".activities.LessonActivity"
+            android:name=".activities.EditActivity"
             android:icon="@mipmap/icon"
             android:label="@string/tv_add_title"/>
         <activity
@@ -42,6 +42,21 @@
         <activity
             android:name=".activities.ExamActivity"
             android:label="@string/activity_exam"
+            android:theme="@style/MyMaterialTheme">
+        </activity>
+        <activity
+            android:name=".activities.LectionActivity"
+            android:label="@string/title_activity_lection"
+            android:theme="@style/MyMaterialTheme">
+        </activity>
+        <activity
+            android:name=".activities.PracticeActivity"
+            android:label="@string/title_activity_practice"
+            android:theme="@style/MyMaterialTheme">
+        </activity>
+        <activity
+            android:name=".activities.TestActivity"
+            android:label="@string/title_activity_test"
             android:theme="@style/MyMaterialTheme">
         </activity>
     </application>

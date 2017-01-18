@@ -4,7 +4,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
-import com.practice.altarix.fursa.universityapp.data.Days;
+import com.practice.altarix.fursa.universityapp.DTO.Days;
 import com.practice.altarix.fursa.universityapp.fragments.DayFragment;
 
 import java.util.ArrayList;

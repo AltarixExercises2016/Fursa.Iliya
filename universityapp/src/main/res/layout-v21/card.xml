@@ -62,14 +62,15 @@
 
             <TextView
                 android:text="@string/test_type"
-                android:layout_width="wrap_content"
+                android:layout_width="120dp"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="265dp"
                 android:id="@+id/tv_type"
-                android:background="@color/colorAccent"
-                android:layout_alignParentTop="true"
-                android:layout_alignParentRight="true"
-                android:layout_alignParentEnd="true"
-                android:layout_margin="10dp" />
+                android:background="@drawable/shape"
+                android:textSize="16sp"
+                android:textAllCaps="false"
+                android:textAlignment="center"/>
 
             <TextView
                 android:text="@string/test_teacher2"

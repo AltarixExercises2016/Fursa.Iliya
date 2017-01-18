@@ -24,4 +24,8 @@
     <string name="exams">Экзамены</string>
     <string name="activity_exam">Текущие экзамены</string>
     <string name="favourite_lessons">Важные</string>
+    <string name="lesson">Лекции</string>
+    <string name="practice">Практика</string>
+    <string name="test">Зачеты</string>
+    <string name="dialog_delete_item">Хотите удалить урок?</string>
 </resources>

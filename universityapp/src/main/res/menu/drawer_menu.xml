@@ -2,10 +2,6 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/nav_teacher"
-            android:icon="@drawable/ic_action_teacher"
-            android:title="@string/teachers"/>
-        <item
             android:id="@+id/nav_lessons"
             android:icon="@drawable/ic_action_fav"
             android:title="@string/favourite_lessons"/>
@@ -13,6 +9,18 @@
             android:id="@+id/nav_exams"
             android:icon="@drawable/ic_action_exam"
             android:title="@string/exams"/>
+        <item
+            android:id="@+id/nav_lec"
+            android:icon="@drawable/ic_lection"
+            android:title="@string/lesson"/>
+        <item
+            android:id="@+id/nav_practice"
+            android:icon="@drawable/ic_practice"
+            android:title="@string/practice"/>
+        <item
+            android:id="@+id/nav_test"
+            android:icon="@drawable/ic_test"
+            android:title="@string/test"/>
         <item
             android:id="@+id/nav_settings"
             android:icon="@drawable/ic_action_app_settings"

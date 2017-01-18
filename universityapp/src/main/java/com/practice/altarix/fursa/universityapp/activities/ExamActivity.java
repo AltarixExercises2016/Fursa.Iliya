@@ -8,17 +8,19 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 
+import com.practice.altarix.fursa.universityapp.DTO.ItemDTO;
 import com.practice.altarix.fursa.universityapp.R;
-import com.practice.altarix.fursa.universityapp.adapters.ExamRecyclerViewAdapter;
-import com.practice.altarix.fursa.universityapp.data.ExamDTO;
-import com.practice.altarix.fursa.universityapp.dto.DatabaseManager;
+import com.practice.altarix.fursa.universityapp.adapters.ItemRecyclerViewAdapter;
+import com.practice.altarix.fursa.universityapp.database.DatabaseManager;
 
 import java.util.List;
 
 public class ExamActivity extends AppCompatActivity {
     private RecyclerView recyclerViewExam;
-    private ExamRecyclerViewAdapter examRecyclerViewAdapter;
+    private ItemRecyclerViewAdapter recyclerViewAdapter;
     private Toolbar toolbar;
+    private static final String EXAM_TYPE = "Экзамен";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,9 +29,9 @@ public class ExamActivity extends AppCompatActivity {
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         recyclerViewExam = (RecyclerView) findViewById(R.id.recyclerViewExam);
         recyclerViewExam.setLayoutManager(new LinearLayoutManager(getBaseContext()));
-        examRecyclerViewAdapter = new ExamRecyclerViewAdapter();
-        examRecyclerViewAdapter.add(loadLessons());
-        recyclerViewExam.setAdapter(examRecyclerViewAdapter);
+        recyclerViewAdapter = new ItemRecyclerViewAdapter();
+        recyclerViewAdapter.add(loadLessons());
+        recyclerViewExam.setAdapter(recyclerViewAdapter);
 
         setSupportActionBar(toolbar);
 
@@ -39,9 +41,9 @@ public class ExamActivity extends AppCompatActivity {
 
     }
 
-    public List<ExamDTO> loadLessons() {
+    public List<ItemDTO> loadLessons() {
         DatabaseManager databaseManager = new DatabaseManager();
-        List<ExamDTO> examDTOList = databaseManager.getAllExams(getBaseContext());
+        List<ItemDTO> examDTOList = databaseManager.getColumnsFromDb(getBaseContext(), EXAM_TYPE);
         return  examDTOList;
     }
 

@@ -8,7 +8,7 @@ import android.os.Bundle;
 import android.widget.Toast;
 
 import com.practice.altarix.fursa.universityapp.R;
-import com.practice.altarix.fursa.universityapp.dto.DatabaseManager;
+import com.practice.altarix.fursa.universityapp.database.DatabaseManager;
 
 
 public class AlertDeleteDialog extends DialogFragment {

@@ -31,9 +31,6 @@
         <item>Практика</item>
         <item>Экзамен</item>
         <item>Зачет</item>
-        <item>Семинар</item>
-        <item>Олимпиада</item>
-        <item>Мероприятие</item>
     </string-array>
 
     <string-array name="teacher_array">
@@ -132,5 +129,12 @@
     <string name="exams">Экзамены</string>
     <string name="activity_exam">Текущие экзамены</string>
     <string name="favourite_lessons">Важные</string>
+    <string name="lesson">Лекции</string>
+    <string name="practice">Практика</string>
+    <string name="test">Зачеты</string>
+    <string name="title_activity_lection">Лекции</string>
+    <string name="title_activity_practice">Практические работы</string>
+    <string name="title_activity_test">Зачеты</string>
+    <string name="dialog_delete_item">Хотите удалить урок?</string>
 
 </resources>

@@ -8,14 +8,14 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.practice.altarix.fursa.universityapp.DTO.LectionDTO;
 import com.practice.altarix.fursa.universityapp.R;
-import com.practice.altarix.fursa.universityapp.data.LessonDTO;
 
 import java.util.List;
 
 
 public class LessonRecyclerViewAdapter extends RecyclerView.Adapter<LessonRecyclerViewAdapter.LessonViewHolder> {
-    private List<LessonDTO> lessonList;
+    private List<LectionDTO> lessonList;
 
 
     public LessonRecyclerViewAdapter() {
@@ -29,7 +29,7 @@ public class LessonRecyclerViewAdapter extends RecyclerView.Adapter<LessonRecycl
 
     @Override
     public void onBindViewHolder(LessonViewHolder holder, int position) {
-        LessonDTO data = lessonList.get(position);
+        LectionDTO data = lessonList.get(position);
 
         holder.tvLesson.setText(String.valueOf(data.lesson));
         holder.tvAuditory.setText(String.valueOf(data.auditory));
@@ -39,7 +39,7 @@ public class LessonRecyclerViewAdapter extends RecyclerView.Adapter<LessonRecycl
 
     }
 
-    public void add(List<LessonDTO> lessonList) {
+    public void add(List<LectionDTO> lessonList) {
         this.lessonList = lessonList;
     }
 
@@ -48,7 +48,7 @@ public class LessonRecyclerViewAdapter extends RecyclerView.Adapter<LessonRecycl
         return lessonList.size();
     }
 
-    public static class LessonViewHolder extends RecyclerView.ViewHolder {
+    public class LessonViewHolder extends RecyclerView.ViewHolder {
         CardView lessonCard;
         TextView tvType, tvTeacher, tvAuditory, tvTime, tvLesson;
 

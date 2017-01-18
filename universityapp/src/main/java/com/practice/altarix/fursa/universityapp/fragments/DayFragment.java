@@ -10,11 +10,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.practice.altarix.fursa.universityapp.DTO.LectionDTO;
 import com.practice.altarix.fursa.universityapp.R;
 import com.practice.altarix.fursa.universityapp.adapters.LessonRecyclerViewAdapter;
-import com.practice.altarix.fursa.universityapp.data.Days;
-import com.practice.altarix.fursa.universityapp.data.LessonDTO;
-import com.practice.altarix.fursa.universityapp.dto.DatabaseManager;
+import com.practice.altarix.fursa.universityapp.DTO.Days;
+import com.practice.altarix.fursa.universityapp.database.DatabaseManager;
 
 import java.util.List;
 
@@ -26,7 +26,7 @@ public class DayFragment extends Fragment {
     private RecyclerView recyclerView;
     private LessonRecyclerViewAdapter lessonRecyclerViewAdapter;
     private LinearLayoutManager linearLayoutManager;
-    private List<LessonDTO> lessons;
+    private List<LectionDTO> lessons;
     private int day;
 
     public static Fragment newInstance(int day) {
@@ -37,7 +37,7 @@ public class DayFragment extends Fragment {
         return fragment;
     }
 
-    public List<LessonDTO> initLessons() {
+    public List<LectionDTO> initLessons() {
         DatabaseManager manager = new DatabaseManager();
         if (getArguments() != null) {
             day = getArguments().getInt(DAY_FRAGMENT_KEY);
@@ -73,6 +73,7 @@ public class DayFragment extends Fragment {
         lessonRecyclerViewAdapter = new LessonRecyclerViewAdapter();
         lessonRecyclerViewAdapter.add(initLessons());
         recyclerView.setAdapter(lessonRecyclerViewAdapter);
+
         return view;
     }
 

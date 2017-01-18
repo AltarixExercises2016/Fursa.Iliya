@@ -76,7 +76,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void onClick(View view) {
-        startActivity(new Intent(this, LessonActivity.class));
+        startActivity(new Intent(this, EditActivity.class));
         Toast.makeText(getBaseContext(), "Main FAB pressed!", Toast.LENGTH_LONG).show();
 
 
@@ -86,13 +86,25 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         drawerLayout.closeDrawers();
         switch (item.getItemId()) {
-            case R.id.nav_teacher: {
-                Toast.makeText(this, "All teachers", Toast.LENGTH_SHORT).show();
+            case R.id.nav_lec: {
+                Toast.makeText(this, "Lections", Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(MainActivity.this, LectionActivity.class));
+                break;
+            }
+            case R.id.nav_test: {
+                Toast.makeText(this, "Test", Toast.LENGTH_LONG).show();
+                startActivity(new Intent(MainActivity.this, TestActivity.class));
+
                 break;
             }
             case R.id.nav_lessons: {
-                Toast.makeText(this, "All lessons", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Favoutite lessons", Toast.LENGTH_SHORT).show();
                 startActivity(new Intent(MainActivity.this, FavouriteActivity.class));
+                break;
+            }
+            case R.id.nav_practice: {
+                Toast.makeText(this, "Practice", Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(MainActivity.this, PracticeActivity.class));
                 break;
             }
             case R.id.nav_exams: {
