@@ -72,7 +72,6 @@ public class ItemRecyclerViewAdapter extends RecyclerView.Adapter<ItemRecyclerVi
                             lm.setAuditory(Integer.parseInt(tvAuditory.getText().toString()));
                             lm.setDay(tvDay.getText().toString());
                             lm.setLection(tvLesson.getText().toString());
-
                             itemList.remove(getAdapterPosition());
                             new DatabaseManager().deleteItem(view.getContext(), lm);
                             notifyDataSetChanged();

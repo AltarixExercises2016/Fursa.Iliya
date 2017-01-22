@@ -36,7 +36,7 @@
 
     <android.support.v4.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="398dp"
+        android:layout_height="401dp"
         app:layout_behavior="android.support.design.widget.AppBarLayout$ScrollingViewBehavior">
 
         <LinearLayout
@@ -59,7 +59,7 @@
         android:layout_marginBottom="10dp"
         android:layout_marginRight="10dp"
         android:clickable="true"
-        app:fabSize="normal"
         app:layout_behavior=""
-        app:srcCompat="@drawable/ic_add" />
+        app:srcCompat="@drawable/ic_add"
+        app:fabSize="normal"/>
 </android.support.design.widget.CoordinatorLayout>

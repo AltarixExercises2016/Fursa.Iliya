@@ -5,6 +5,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
+import android.widget.Toast;
 
 import com.practice.altarix.fursa.universityapp.DTO.ItemDTO;
 import com.practice.altarix.fursa.universityapp.DTO.LectionDTO;
@@ -65,6 +66,15 @@ public class DatabaseManager {
     public void insertLesson(LessonModel model, Context context) {
         helper = new DatabaseHelper(context);
         db = helper.getWritableDatabase();
+
+        Cursor cursor = db.rawQuery("SELECT * FROM " + LESSONS_TABLE + " WHERE " + LESSON_DAY + " = '" + model.getDay() + "';", null);
+        cursor.moveToFirst();
+        int counter = cursor.getCount();
+        Log.d(DB_MAN, "Counter = " + counter);
+        Log.d(DB_MAN, "SELECT * FROM " + LESSONS_TABLE + " WHERE " + LESSON_DAY + " = '" + model.getDay() + "';");
+
+        cursor.close();
+
         db.beginTransaction();
         try {
             ContentValues cv = new ContentValues();
@@ -78,18 +88,22 @@ public class DatabaseManager {
             cv.put(LESSON_TIME, model.getTime());
             cv.put(LESSON_DAY, model.getDay());
             cv.put(LESSON_FAV, model.getLessonFav());
+            if (counter < 6) {
+                long lesson = db.insert(LESSONS_TABLE, null, cv);
+                Log.d(DB_MAN, "All data are saved correctly!!!!" + "Teacher id = " + teacher
+                        + "Lesson id = " + lesson);
+                db.setTransactionSuccessful();
+            } else if (counter > 6) {
+                Toast.makeText(context, "Нельзя добавить больше уроков!!!", Toast.LENGTH_SHORT).show();
+                db.setTransactionSuccessful();
+            }
 
-            long lesson = db.insert(LESSONS_TABLE, null, cv);
-            Log.d(DB_MAN, "All data are saved correctly!!!!" + "Teacher id = " + teacher
-                    + "Lesson id = " + lesson);
-            db.setTransactionSuccessful();
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
             db.endTransaction();
             db.close();
             helper.close();
-
         }
     }
 
@@ -151,7 +165,6 @@ public class DatabaseManager {
     }
 
 
-
     public List<ItemDTO> getColumnsFromDb(Context context, String type) {
         List<ItemDTO> lectionDTOList = new ArrayList<>();
         helper = new DatabaseHelper(context);
@@ -167,7 +180,6 @@ public class DatabaseManager {
             int time = cursor.getColumnIndex(LESSON_TIME);
 
             do {
-
                 Log.d(DB_MAN, "TEACHER = " + cursor.getString(teacher));
                 Log.d(DB_MAN, "TYPE = " + type);
                 Log.d(DB_MAN, "TIME = " + cursor.getString(time));
@@ -175,7 +187,7 @@ public class DatabaseManager {
                 Log.d(DB_MAN, "AUDITORY = " + cursor.getInt(auditory));
                 Log.d(DB_MAN, "DAY = " + cursor.getString(day));
 
-                lectionDTOList.add(new ItemDTO(cursor.getString(teacher), cursor.getString(time), type, cursor.getString(lesson), cursor.getInt(auditory), cursor .getString(day)));
+                lectionDTOList.add(new ItemDTO(cursor.getString(teacher), cursor.getString(time), type, cursor.getString(lesson), cursor.getInt(auditory), cursor.getString(day)));
             } while (cursor.moveToNext());
         } else {
             cursor.close();
@@ -221,26 +233,22 @@ public class DatabaseManager {
     public void deleteItem(Context context, LessonModel lm) {
         helper = new DatabaseHelper(context);
         db = helper.getWritableDatabase();
-        db.beginTransaction();
-        try {
-            db.rawQuery("DELETE FROM " + TEACHER_TABLE + " WHERE " + TEACHER_NAME + " = '" + lm.getTeacher() + "'", null);
-            db.rawQuery("DELETE FROM " + LESSONS_TABLE + " WHERE " + LESSON_NAME + " = '" + lm.getLection() + "' AND " + LESSON_AUDITORY + " = " + lm.getAuditory() +
-                    " AND " + LESSON_TYPE + " = '" + lm.getType() + "' AND " + LESSON_DAY + " = '" + lm.getDay() + "' AND " + LESSON_TIME + " = '" + lm.getTime() + "'", null);
-
-            Log.d(DB_MAN, "DELETE FROM " + TEACHER_TABLE + " WHERE " + TEACHER_NAME + " = '" + lm.getTeacher() + "'");
-            Log.d(DB_MAN, "DELETE FROM " + LESSONS_TABLE + " WHERE " + LESSON_NAME + " = '" + lm.getLection() + "' AND " + LESSON_AUDITORY + " = " + lm.getAuditory() +
-                    " AND " + LESSON_TYPE + " = '" + lm.getType() + "' AND " + LESSON_DAY + " = '" + lm.getDay() + "' AND " + LESSON_TIME + " = '" + lm.getTime() + "'");
-            db.setTransactionSuccessful();
-        } catch (Exception e) {
-            e.printStackTrace();
-        } finally {
-            db.endTransaction();
+        Cursor cursor = db.rawQuery("SELECT id FROM " + LESSONS_TABLE + " WHERE " + LESSON_NAME + " = '" + lm.getLection() + "' AND " + LESSON_AUDITORY + " = " + lm.getAuditory() + " AND " + LESSON_TYPE + " = '" + lm.getType() + "' AND " + LESSON_TIME + " = '" + lm.getTime() + "' AND " + LESSON_DAY + " = '" + lm.getDay() + "';", null);
+        if (cursor.moveToFirst()) {
+            int id = cursor.getColumnIndex(LESSON_ID);
+            do {
+                int row = cursor.getInt(id);
+                int lesson = db.delete(LESSONS_TABLE, "id = " + row, null);
+                int teacher = db.delete(TEACHER_TABLE, "id = " + row, null);
+                Log.d(DB_MAN, "ID = " + row);
+                Log.d(DB_MAN, "Teacher = " + teacher);
+                Log.d(DB_MAN, "Lesson = " + lesson);
+            } while (cursor.moveToNext());
+        } else {
+            cursor.close();
             helper.close();
             db.close();
         }
-
     }
-
-
 }
 
