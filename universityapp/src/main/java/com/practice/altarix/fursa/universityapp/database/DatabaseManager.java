@@ -93,7 +93,7 @@ public class DatabaseManager {
                 Log.d(DB_MAN, "All data are saved correctly!!!!" + "Teacher id = " + teacher
                         + "Lesson id = " + lesson);
                 db.setTransactionSuccessful();
-            } else if (counter > 6) {
+            } else  {
                 Toast.makeText(context, "Нельзя добавить больше уроков!!!", Toast.LENGTH_SHORT).show();
                 db.setTransactionSuccessful();
             }
